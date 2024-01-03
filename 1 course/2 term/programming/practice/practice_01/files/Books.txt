@@ -1,0 +1,11 @@
+Books|BookID
+BookID|Int32|8|Quantity|Int32|8|SubjectID|Int32|8|Title|String|40
+       1|      18|       1|         Hawking's Guide to the Universe
+       2|      17|       1|       Calculus: From Limits to Infinity
+       3|      19|       1|   Programming with Java by Kathy Sierra
+       4|      16|       2|    The Art of Problem Solving: Volume 1
+       5|      17|       2|      Introduction to Probability Theory
+       6|      18|       2|              Understanding Cryptography
+       7|      16|       3|           The Design of Everyday Things
+       8|      20|       3|          The Elements of Graphic Design
+       9|      21|       3|                 Principles of Economics

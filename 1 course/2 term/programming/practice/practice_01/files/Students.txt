@@ -1,0 +1,9 @@
+Students|StudentID
+Group|String|8|Name|String|16|StudentID|Int32|8
+  IU5-21|    Ivanova A.P.|       1
+  IU5-23|    Smirnov A.V.|       2
+  IU7-32|      Popov D.A.|       3
+  IU4-51| Kuznetsova E.M.|       4
+  IU5-24|   Nikolaev A.V.|       5
+  IU5-21|   Lebedeva O.S.|       6
+  IU5-42|     Parker V.G.|       7

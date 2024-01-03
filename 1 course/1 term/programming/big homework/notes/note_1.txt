@@ -1,0 +1,413 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define size_dictionary 100000
+#define size_out 1000000
+#define size_word 100
+
+int Find1(int in[size_dictionary][size_word], int last_position, int str[size_word], int size) {
+    for (int i = 0; i < last_position; ++i) {
+        int flag = 1;
+        for (int j = 0; j < size; ++j) {
+            if (in[i][j] != str[j]) flag = 0;
+        }
+        if (flag) return i;
+    }
+    return -1;
+}
+
+int Find(char in[size_dictionary][size_word], int last_position, char str[size_word], int size) {
+    for (int i = 0; i < last_position; ++i) {
+        int flag = 1;
+        for (int j = 0; j < size; ++j) {
+            if (in[i][j] != str[j]) flag = 0;
+        }
+        if (flag) return i;
+    }
+    return -1;
+}
+
+int *Compress(FILE *in, int *index) {
+    int dictionary[size_dictionary][size_word] = {0};
+    for (int i = 0; i < 256; i++) dictionary[i][0] = i;
+    int last_position = 256;
+
+    int *out = malloc(size_out * sizeof(int));
+
+    int byte;
+    int num = 0;
+    int current_string[size_word] = {0}; int size = 0;
+    while ((byte = fgetc(in)) != EOF) {
+        num++;
+        current_string[size++] = byte;
+        if (Find1(dictionary, last_position, current_string, size) == -1){
+            for (int i = 0; i < size_word; ++i) dictionary[last_position][i] = current_string[i];
+            last_position++;
+
+            out[(*index)++] = Find1(dictionary, last_position, current_string, size-1);
+
+            for (int i = 0; i < size_word; ++i) current_string[i]=0;
+            current_string[0] = byte;
+            size = 1;
+        }
+    }
+    out[(*index)++] = Find1(dictionary, last_position, current_string, size);
+    return out;
+}
+
+char **Decompress(int *in, int size_in, int *index) {
+    char dictionary[size_dictionary][size_word] = {0};
+    for (int i = 0; i < 256; i++) dictionary[i][0] = i;
+    int last_position = 256;
+
+    char **out = malloc(size_out * sizeof *out + (size_out * (size_word * sizeof **out)));
+    char *offs = &out[size_out];
+    for (int i = 0; i < size_out; ++i, offs += size_word) out[i] = offs;
+    for (int i = 0; i < size_out; ++i) for (int j = 0; j < size_word; ++j) out[i][j] = 0;
+    (*index)++;
+
+    for (int num = 0; num < size_in; ++num){
+        char tmp[size_word] = {0}; int size = 0;
+        for (size = 0; out[(*index)-1][size]!=0; ++size) tmp[size]=out[(*index)-1][size];
+
+        if (in[num] < last_position) tmp[size++]=dictionary[in[num]][0];
+        else tmp[size++]=out[(*index)-1][0];
+
+        if (Find(dictionary, last_position, tmp, size) == -1){
+            for (int i = 0; i < size; ++i) dictionary[last_position][i] = tmp[i];
+            last_position++;
+        }
+
+        for (int i = 0; i < size_word; ++i) {
+            out[*index][i] = dictionary[in[num]][i];
+        }
+        (*index)++;
+    }
+    return out;
+}
+
+int main() {
+    FILE *original_read = fopen("../files/old_file.txt", "rb");
+    int size_enc = 0;
+    int *enc = Compress(original_read, &size_enc);
+
+    for (int num = 0; num < size_enc; ++num) printf("%d\n", enc[num]);
+    printf("\n\n");
+
+    int size_dec = 0;
+    char **dec = Decompress(enc, size_enc, &size_dec);
+
+    for (int i = 0; i < size_out; ++i){
+        for (int j = 0; j < size_word; ++j){
+            if (dec[i][j] != 0) printf("%c", dec[i][j]);
+        }
+    }
+
+    return 0;
+}
+
+---------------------------------------------------------------------------------------------------------
+
+int *Compress(FILE *in, int *index) {
+    int dictionary[size_dictionary][size_word] = {0};
+    for (int i = 0; i < 256; i++) dictionary[i][0] = i;
+    int last_position = 256;
+
+
+
+    int byte;
+    int num = 0;
+    int current_string[size_word] = {0};
+    int size = 0;
+    while ((byte = fgetc(in)) != EOF) {
+        num++;
+        current_string[size++] = byte;
+        if (Find(dictionary, last_position, current_string, size) == -1) {
+            for (int i = 0; i < size_word; ++i) dictionary[last_position][i] = current_string[i];
+            last_position++;
+
+            out[(*index)++] = Find(dictionary, last_position, current_string, size - 1);
+
+            for (int i = 0; i < size_word; ++i) current_string[i] = 0;
+            current_string[0] = byte;
+            size = 1;
+        }
+    }
+    out[(*index)++] = Find(dictionary, last_position, current_string, size);
+    return out;
+}
+
+int **Decompress(int *in, int size_in, int *index) {
+    int dictionary[size_dictionary][size_word] = {0};
+    for (int i = 0; i < 256; i++) dictionary[i][0] = i;
+    int last_position = 256;
+
+    int **out = malloc(size_out * sizeof *out + (size_out * (size_word * sizeof **out)));
+    int *offs = &out[size_out];
+    for (int i = 0; i < size_out; ++i, offs += size_word) out[i] = offs;
+    for (int i = 0; i < size_out; ++i) for (int j = 0; j < size_word; ++j) out[i][j] = 0;
+    (*index)++;
+
+    for (int num = 0; num < size_in; ++num) {
+        int tmp[size_word] = {0};
+        int size = 0;
+        for (size = 0; out[(*index) - 1][size] != 0; ++size) tmp[size] = out[(*index) - 1][size];
+
+        if (in[num] < last_position) tmp[size++] = dictionary[in[num]][0];
+        else tmp[size++] = out[(*index) - 1][0];
+
+        if (Find(dictionary, last_position, tmp, size) == -1) {
+            for (int i = 0; i < size; ++i) dictionary[last_position][i] = tmp[i];
+            last_position++;
+        }
+
+        for (int i = 0; i < size_word; ++i) {
+            out[*index][i] = dictionary[in[num]][i];
+        }
+        (*index)++;
+    }
+    int count = 0;
+    for (int i = 0; i < last_position; ++i){
+        int j = 0;
+        for (; dictionary[i][j]!=0; ++j)
+            if (j >= 65535) count+=4;
+            else if (j >= 256) count+=3;
+            else count+=2;
+    }
+    printf("table - %d \n",count);
+    return out;
+}
+
+-----------------------------------------------------------------------------------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define size_dictionary 100000
+#define size_out 1000000
+#define size_word 100
+
+int Find(int in[size_dictionary][size_word], int last_position, int str[size_word], int size) {
+    for (int i = 0; i < last_position; ++i) {
+        int flag = 1;
+        for (int j = 0; j < size; ++j) {
+            if (in[i][j] != str[j]) flag = 0;
+        }
+        if (flag) return i;
+    }
+    return -1;
+}
+
+int CountZero(int tmp) {
+    int flag = 1, count = 0;
+    for (int position = 32 - 1; position >= 0; --position) {
+        if (((tmp >> position) & 0x1) == 0 & flag) count++;
+        else break;
+    }
+    return count;
+}
+
+//void Print(int tmp) {
+//    for (int position = 8 - 1; position >= 0; --position) {
+//        printf("%d", (tmp >> position) & 0x1);
+//    }
+//    printf("\n");
+//}
+
+int *Compress(FILE *in, int *index) {
+    int dictionary[size_dictionary][size_word] = {0}, last_position = 0;
+    for (int i = 1; i < 256; i++) dictionary[last_position++][0] = i;
+
+    int *out = malloc(size_out * sizeof(int));
+
+    int byte;
+    int num = 0;
+    int current_string[size_word] = {0};
+    int size = 0;
+    int last_size = 0;
+    while ((byte = fgetc(in)) != EOF) {
+        num++;
+        current_string[size++] = byte;
+        if (Find(dictionary, last_position, current_string, size) == -1) {
+            for (int i = 0; i < size_word; ++i) dictionary[last_position][i] = current_string[i];
+            last_position++;
+
+            if (last_size < size) {
+                out[(*index)++] = 0;
+                last_size = size;
+            }
+            out[(*index)++] = Find(dictionary, last_position, current_string, size - 1);
+
+            for (int i = 0; i < size_word; ++i) current_string[i] = 0;
+            current_string[0] = byte;
+            size = 1;
+        }
+    }
+    out[(*index)++] = Find(dictionary, last_position, current_string, size);
+//    int count = 0;
+//    for (int i = 0; i < last_position; ++i) {
+//        int j = 0;
+//        for (; dictionary[i][j] != 0; ++j)
+//            if (j >= 65535) count += 4;
+//            else if (j >= 256) count += 3;
+//            else count += 2;
+//    }
+//    printf("table - %d \n", count);
+    return out;
+}
+
+int **Decompress(int *in, int size_in, int *index) {
+    int dictionary[size_dictionary][size_word] = {0}, last_position = 0;;
+    for (int i = 1; i < 256; i++) dictionary[last_position++][0] = i;
+
+    int **out = malloc(size_out * sizeof *out + (size_out * (size_word * sizeof **out)));
+    int *offs = &out[size_out];
+    for (int i = 0; i < size_out; ++i, offs += size_word) out[i] = offs;
+    for (int i = 0; i < size_out; ++i) for (int j = 0; j < size_word; ++j) out[i][j] = 0;
+    (*index)++;
+
+    for (int num = 0; num < size_in; ++num) {
+        int tmp[size_word] = {0};
+        int size = 0;
+        for (size = 0; out[(*index) - 1][size] != 0; ++size) tmp[size] = out[(*index) - 1][size];
+
+        if (in[num] < last_position) tmp[size++] = dictionary[in[num]][0];
+        else tmp[size++] = out[(*index) - 1][0];
+
+        if (Find(dictionary, last_position, tmp, size) == -1) {
+            for (int i = 0; i < size; ++i) dictionary[last_position][i] = tmp[i];
+            last_position++;
+        }
+
+        for (int i = 0; i < size_word; ++i) {
+            out[*index][i] = dictionary[in[num]][i];
+        }
+        (*index)++;
+    }
+    return out;
+}
+
+int main() {
+    FILE *original_read = fopen("../files/old_file.txt", "rb");
+
+    int size_enc = 0;
+    int *enc = Compress(original_read, &size_enc);    /// compress 1 method
+
+//    for (int num = 0; num < size_enc; ++num) printf("%d ", enc[num]);
+//    printf("\n\n");
+
+    FILE *encode_write = fopen("../files/new_file.txt", "wb");
+//    int count = 0;
+    char byte = 0;
+    int len = 0, count_bit = 8;
+    int tmp, len_tmp, tmp1;
+    for (int i = 0; i < size_enc; ++i) {
+        if (enc[i] == 0) len = 32 - CountZero(enc[i + 1]);
+
+        tmp = enc[i];
+        len_tmp = len;
+        while (len_tmp != 0) {
+            if (count_bit >= len_tmp) {
+                byte <<= len_tmp;
+                byte += tmp;
+                count_bit -= len_tmp;
+                len_tmp = 0;
+            } else {
+                tmp1 = tmp;
+
+                byte <<= count_bit;
+                tmp1 >>= len_tmp - count_bit;
+                byte += tmp1;
+
+                tmp <<= 32 - (len_tmp - count_bit);
+                tmp >>= 1;
+                tmp &= ~(1 << 31);
+                tmp >>= 31 - (len_tmp - count_bit);
+
+                len_tmp -= count_bit;
+                count_bit = 0;
+            }
+
+            if (count_bit == 0) {
+//                Print(byte);
+                fputc(byte, encode_write);
+                byte = 0;
+                count_bit = 8;
+//                count++;
+            }
+        }
+    }
+//    printf("%d", count);
+
+    fclose(original_read);
+    fclose(encode_write);
+    free(enc);
+
+//    FILE *encode_read = fopen("../files/new_file.txt", "rb");
+//    int byte = 0;
+//    int size_enc1 = 0;
+//    int *enc1 = calloc(1, sizeof(int));
+//    /// reading encoded
+////    for (int num = 0; num < size_enc1; ++num) printf("%d ", enc1[num]);
+////    printf("\n");
+//
+//    int size_dec = 0;
+//    int **dec = Decompress(enc1, size_enc1, &size_dec); /// decompres 1 method
+//
+//    for (int i = 0; i < size_out; ++i){ /// decoded output
+//        for (int j = 0; j < size_word; ++j){
+//            if (dec[i][j] != 0) printf("%c", dec[i][j]);
+//        }
+//    }
+//
+//    free(enc1);
+
+    return 0;
+}
+
+/*        do {
+//            printf("\n%d %d\n", len, len_last);
+//
+//            printf("byte\t%d\t", byte);
+//            Print(byte, 8);
+
+            item = last;
+            len_item = len_last;
+
+//            printf("item + last\t");
+//            Print(item, 32);
+
+            if (len_last < len){
+                item <<= 8;
+                item += word;
+                len_item += 8;
+                item <<= 32 - len_item;
+                item >>= 1;
+                item &= ~(1 << 31);
+                item >>= 31 - len;
+                len_item = len;
+            } else {
+                item >>= 1;
+                len_item--;
+            }
+
+            printf("%d ", item);
+//            printf("item\t%d\t", item);
+//            Print(item, len_item);
+
+            if (item == 0) len++;
+
+            last = word;
+            last <<= 32 - 8 + (len - len_last);
+            last >>= 1;
+            last &= ~(1 << 31);
+            last >>= 31 - 8 + (len - len_last);
+            if (len_last >= 8) len_last-=len;
+            else len_last = 8 - (len - len_last);
+
+//            printf("last\t%d\t", last);
+//            Print(last, 32);
+
+            word = last;
+        } while (len_last > len);
+    */

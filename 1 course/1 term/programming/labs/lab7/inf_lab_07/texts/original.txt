@@ -1,0 +1,89 @@
+ !"№$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz
+{|}~АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя
+
+into Winston’s eyes, felt his pulse, laid an ear against his
+chest, tapped here and there, then he nodded to O’Brien.
+‘Again,’ said O’Brien.
+The pain flowed into Winston’s body. The needle must be
+at seventy, seventy-five. He had shut his eyes this time. He
+knew that the fingers were still there, and still four. All that
+mattered was somehow to stay alive until the spasm was
+over. He had ceased to notice whether he was crying out or
+not. The pain lessened again. He opened his eyes. O’Brien
+had drawn back the lever.
+‘How many fingers, Winston?’
+‘Four. I suppose there are four. I would see five if I could.
+I am trying to see five.’
+‘Which do you wish: to persuade me that you see five, or
+really to see them?’
+‘Really to see them.’
+‘Again,’ said O’Brien.
+Perhaps the needle was eighty—ninety. Winston could
+not intermittently remember why the pain was happening.
+Behind his screwed-up eyelids a forest of fingers seemed to
+be moving in a sort of dance, weaving in and out, disap-
+pearing behind one another and reappearing again. He was
+trying to count them, he could not remember why. He knew
+only that it was impossible to count them, and that this was
+somehow due to the mysterious identity between five and
+four. The pain died down again. When he opened his eyes
+it was to find that he was still seeing the same thing. In-
+numerable fingers, like moving trees, were still streaming
+past in either direction, crossing and recrossing. He shut
+Free eBooks at Planet eBook.com
+317his eyes again.
+‘How many fingers am I holding up, Winston?’
+‘I don’t know. I don’t know. You will kill me if you do that
+again. Four, five, six—in all honesty I don’t know.’
+‘Better,’ said O’Brien.
+A needle slid into Winston’s arm. Almost in the same in-
+stant a blissful, healing warmth spread all through his body.
+The pain was already half-forgotten. He opened his eyes
+and looked up gratefully at O’Brien. At sight of the heavy,
+lined face, so ugly and so intelligent, his heart seemed to
+turn over. If he could have moved he would have stretched
+out a hand and laid it on O’Brien’s arm. He had never loved
+him so deeply as at this moment, and not merely because
+he had stopped the pain. The old feeling, that at bottom it
+did not matter whether O’Brien was a friend or an enemy,
+had come back. O’Brien was a person who could be talked
+to. Perhaps one did not want to be loved so much as to be
+understood. O’Brien had tortured him to the edge of luna-
+cy, and in a little while, it was certain, he would send him
+to his death. It made no difference. In some sense that went
+deeper than friendship, they were intimates: somewhere or
+other, although the actual words might never be spoken,
+there was a place where they could meet and talk. O’Brien
+was looking down at him with an expression which suggest-
+ed that the same thought might be in his own mind. When
+
+1.  Сформулируйте определение окрестности точки x ∈ R
+Окрестностью S(x0) точки x0, называется любой интервал содержащий эту точку
+
+2.  Сформулируйте определение ε-окрестности точки x ∈ R
+ε - окрестности точки  s(x, ε) точки x0, называется интервал с центром в точке x0 и длиной в 2ε
+
+3.  Сформулируйте определение окрестности +∞
+Окрестностью +∞ называется любой интервал вида: (a, +∞), где любой a ∈ R
+
+4.  Сформулируйте определение окрестности −∞
+Окрестностью -∞ называется любой интервал вида: (-∞, -a), где любой a ∈ R
+
+5.  Сформулируйте определение окрестности ∞
+Окрестность ∞ называется U двух окрестностей +∞ и -∞
+
+6.  Сформулируйте определение предела последовательности
+Число a называется пределом числовой последовательности {Xn} тогда и только тогда, когда для любого положительного числа  ε найдётся натуральное число N(ε) ∈ N, зависящее от ε, такое что, как только порядковый номер численной последовательности n станет n>N(ε), то последует неравенство |Xn - a|<ε
+
+7.  Сформулируйте определение сходящейся последовательности
+Последовательность имеющая предел называется сходящейся
+
+8.  Сформулируйте определение ограниченной последовательности
+Последовательность {Xn} называется ограниченной, если существуют такие m ∈R и M ∈R, такой, что любого n ∈N выполняется неравенство m<=Xn<=M
+
+9.  Сформулируйте определение монотонной последовательности
+все последовательности числа a, именно возрастающие, убывающие, невозрастающие, неубывающие
+
+10.  Сформулируйте определение возрастающей последовательности
+последовательность чисел называется возростающей, если Xn+1 > Xn для любого n ∈N
+{1, 2, 3, 4, 5,...}

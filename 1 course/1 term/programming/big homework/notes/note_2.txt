@@ -1,0 +1,107 @@
+/// Copyright 2022 ttsypyshev <ttsypyshev01@gmail.com>
+
+/// Error: "Process finished with exit code -1073741571 (0xC00000FD)"
+//  it is necessary to increase the stack size in the ide settings
+//  add to CMakeLists:  MATH(EXPR stack_size "64 * 1024 * 1024") # 64 Mb
+//                      set(CMAKE_EXE_LINKER_FLAGS "-Wl,--stack,${stack_size}")
+///  Note: but I still couldn't open 1984 (I don't have enough computer power)
+//  you can try to run asynchronously
+
+/// A flaw: reading a file with the Russian language does not work
+// in this ide it is difficult to fix
+// Note: need to test in other IDEs
+
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/// dictionary size values
+// with these values, the program will work only if you increase the stack size to 64mb
+#define size_dictionary 100000
+#define size_out 1000000
+#define size_word 100
+
+/// search for a word in the dictionary
+int Find(int in[size_dictionary][size_word], int last_position, int str[size_word], int size) {
+    for (int i = 0; i < last_position; ++i) {
+        int flag = 1;
+        for (int j = 0; j < size; ++j) {
+            if (in[i][j] != str[j]) flag = 0;
+        }
+        // if found, then output the index
+        if (flag) return i;
+    }
+    // if not found, then output -1
+    return -1;
+}
+
+/// the function compresses the text
+int *Compress(char *in, int len, int *index) {
+    // creating a dictionary (1-255 characters from the ascii table)
+    int dictionary[size_dictionary][size_word] = {0}, last_position = 0;
+    for (int i = 1; i < 256; i++) dictionary[last_position++][0] = i;
+
+    // creating a two-dimensional array for output
+    int *out = malloc(size_out * sizeof(int));
+
+    // encoding algorithm
+    int byte;
+    int current_string[size_word] = {0};
+    int size = 0;
+    for (int num = 0; num < len; ++num) {
+        byte = in[num];
+        current_string[size++] = byte;
+        // if there is no <current_string> in the <dictionary>, then...
+        if (Find(dictionary, last_position, current_string, size) == -1) {
+            // ...we are adding it
+            for (int i = 0; i < size_word; ++i) dictionary[last_position][i] = current_string[i];
+            last_position++;
+
+            // output the number of the previous value <current_string>
+            out[(*index)++] = Find(dictionary, last_position, current_string, size - 1);
+
+            // clearing <current_string> and equating <byte>
+            for (int i = 0; i < size_word; ++i) current_string[i] = 0;
+            current_string[0] = byte;
+            size = 1;
+        }
+    }
+    // the last element is not taken into account by the algorithm, so you have to add it manually
+    out[(*index)++] = Find(dictionary, last_position, current_string, size);
+    return out;
+}
+
+int main() {
+    // we ask the user to enter the text
+    printf("Enter a line (press \"Enter\" to complete the input):\n");
+    char tmp = 0;
+    char *str = malloc(1 * sizeof(char));
+    int size = 0;
+    while (1) {
+        scanf("%c", &tmp);
+        if (tmp == '\n') break;
+
+        // increasing the array with the dictionary
+        str[size++] = tmp;
+        str = realloc(str, size * sizeof(int));
+    }
+
+    // calling the function to encode
+    int size_enc = 0;
+    int *enc = Compress(str, size, &size_enc);    /// compress 1 method
+
+    // output compressed text
+    printf("\nCompressed text:\n");
+    for (int num = 0; num < size_enc; ++num) printf("%d ", enc[num]);
+
+    // we output compression data to the user
+    printf("\n\nLength of the original text\t%d\nLength of compressed text\t%d\n", size, size_enc);
+    printf("Compressed by %.3lf time(s)\n\n", 1.0 * size / size_enc);
+
+    free(enc);
+    return 0;
+}
+

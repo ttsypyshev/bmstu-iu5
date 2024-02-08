@@ -1,0 +1,166 @@
+\documentclass[12pt, a4paper]{report}
+\usepackage[left=2cm, right=1.5cm, top=2cm, bottom=2cm, bindingoffset=0cm]{geometry} % поля
+\usepackage{indentfirst} % отступ после заголовка
+% \setlength{\parindent}{5ex} % отступ в начале абзаца
+% \setlength{\parskip}{1em} % отступ между абзацами
+
+\usepackage[utf8]{inputenc} % кодировка
+\usepackage[english,russian]{babel} % язык
+\usepackage{cmap} % поиск в pdf
+
+\usepackage{tikz} % выделение текста (` `)
+\tikzset{baseline, inner sep=2pt, minimum height=12pt, rounded corners=2pt}
+\newcommand{\code}[1]{\mbox{\ttfamily \tikz \node[anchor=base,fill=black!12]{#1};}}
+
+\makeatletter % убираю "Глава №"
+\def\@makechapterhead#1{
+    {\normalfont
+\bfseries\begin{center}\lowercase{#1}\end{center}\par\nobreak\vskip 10\p@}}
+\makeatother
+
+\usepackage{graphicx} % картинки
+\graphicspath{ {images/} } % место по умолчанию
+
+\usepackage{amsmath} % математика
+
+\title{Тетрадь}
+\author{Цыпышев Тимофей, ИУ5-41Б \thanks{Семинары ведёт едведева К.О.}}
+\date{8 февраля 2024 г. - \today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\part{Module 1}
+
+\chapter{Seminar 1}
+
+\section{Exercise №1}
+
+\subsection{Match the words (1-6) with their definitions (a-f). Use a dictionary if necessary.}
+\begin{enumerate}
+    \item[1.] stimulated
+    \item[2.] radiation
+    \item[3.] acronym
+    \item[4.] emission
+    \item[5.] beam
+    \item[6.] amplification
+\end{enumerate}
+
+\begin{enumerate}
+    \item[a.] energy in the form of heat or light that you cannot see and
+        which can be very harmful
+    \item[b.] a word formed from the initial letters of other words
+    \item[c.] the increase in volume of a signal
+    \item[d.] a line of radiation or particles flowing in one direction
+    \item[e.] the act of sending out gases or other substances
+    \item[f.] made stronger or more active
+\end{enumerate}
+
+\subsection{Solution}
+
+\begin{enumerate}
+    \item[1.] f
+    \item[2.] a
+    \item[3.] b
+    \item[4.] e
+    \item[5.] d
+    \item[6.] c
+\end{enumerate}
+
+\section{Exercise №2}
+
+\subsection{In groups answer the questions.}
+\begin{enumerate}
+    \item[1.] What is a laser?
+        \begin{enumerate}
+            \item[a.] a device which produces a very narrow beam of light useful in many technologies
+            \item[b.] a process of optical amplification of light based on radiation emission
+            \item[c.] both a and b
+        \end{enumerate}
+    \item[2.] What kind of word is the word ‘laser’?
+        \begin{enumerate}
+            \item[a.] acronym
+            \item[b.] shortening
+            \item[c.] contraction
+        \end{enumerate}
+    \item[3.] Can you decode the word ‘laser’? (use the words from task 1)
+        \begin{enumerate}
+            \item[] L... A... by Stimulated E... of R... .
+        \end{enumerate}
+\end{enumerate}
+
+\subsection{Solution}
+\begin{enumerate}
+    \item[1.] a
+    \item[2.] a
+    \item[3.] Light Amplification by Stimulated Emission of Radiation
+\end{enumerate}
+
+\section{Exercise №3}
+
+\subsection{Study the pictures below. Which of the following words and phrases refer to ordinary light
+    (1) and which to laser light (2)?}
+
+Coherent; its intensity decreases with distance; highly monochromatic; it is not strictly
+monochromatic; organised; less intense; travels in one direction; incoherent; highly intense;
+concentrated; travels in all directions; disorganised.
+
+\subsection{Solution}
+\code{Ordinary light:}
+\begin{itemize}
+    \item disorganized
+    \item its intensity decreases with distance
+    \item it is not strictly monochromatic
+    \item less intense, incoherent
+    \item travels in all directions
+\end{itemize}
+
+\code{Laser light:}
+\begin{itemize}
+    \item organized
+    \item Coherent
+    \item highly monochromatic
+    \item travels in one direction
+    \item highly intense
+    \item concentrated
+\end{itemize}
+
+\section{Exercise №6}
+\code{[Устно]}
+\subsection{Read the text again and answer the following questions.}
+\begin{enumerate}
+    \item Why can we say that lasers were predicted long before their invention?
+    \item What is a laser? What does the word ‘laser’ mean?
+    \item What kind of beam do lasers have?
+    \item What do we mean by the words ‘monochromatic, directional, and coherent’ when we refer
+          to laser light?
+    \item Why is the light from the laser so concentrated?
+    \item Who proposed the theoretical possibility of the process that made lasers possible?
+    \item Who created the first microwave generator?
+    \item Who demonstrated the first successful light laser?
+    \item What laser types are mentioned in the text?
+    \item Do you agree with the author’s opinion that lasers have found myriads of useful
+          applications? What examples do you think best prove this point?
+    \item While reading this text, which uses of lasers surprised you the most?
+    \item Can you think of an example of a laser device or technology that you have used or are using?
+\end{enumerate}
+
+\section{Exercise №7}
+\code{[Устно]}
+\subsection{Read the statements and decide which of them are true (T) and which are false (F)
+    according to text 10A. Explain why.}
+\begin{enumerate}
+    \item The word ‘laser’ means microwave amplification by stimulated emission of radiation.
+    \item Laser was invented at the dawn of the 20th century.
+    \item Albert Einstein was the first inventor of a laser.
+    \item Laser came into existence only in the second half of the 20-th century.
+    \item Unfortunately most of the applications of a laser proved to be unattainable in the real world.
+    \item The use of lasers in thermonuclear fusion reactors may be the key to the future.
+    \item Laser weapons are widely used by the military.
+    \item In medicine lasers can be used for various surgical procedures.
+    \item Very few inventions can match the impact of the laser’s invention.
+    \item Laser technology has a promising future.
+\end{enumerate}
+
+\end{document}

@@ -1,29 +1,4 @@
-\documentclass[12pt, a4paper]{report}
-\usepackage[left=2cm, right=1.5cm, top=2cm, bottom=2cm, bindingoffset=0cm]{geometry} % поля
-\usepackage{indentfirst} % отступ после заголовка
-% \setlength{\parindent}{5ex} % отступ в начале абзаца
-% \setlength{\parskip}{1em} % отступ между абзацами
-
-\usepackage[utf8]{inputenc} % кодировка
-\usepackage[english,russian]{babel} % язык
-\usepackage{cmap} % поиск в pdf
-
-\usepackage{graphicx} % картинки
-\graphicspath{ {images/lecture 1/} } % место по умолчанию
-
-\usepackage{amsmath} % математика
-
-\usepackage{tikz} % выделение текста (` `)
-\tikzset{baseline, inner sep=2pt, minimum height=12pt, rounded corners=2pt}
-\newcommand{\code}[1]{\mbox{\ttfamily \tikz \node[anchor=base,fill=black!12]{#1};}}
-
-\title{Лекция №1}
-\author{Цыпышев Тимофей, ИУ5-41Б \thanks{Лекции ведёт Силантьева Е.Ю.}}
-\date{07.02.24}
-
-\begin{document}
-% \maketitle
-% \tableofcontents
+\part{Лекция №1 07.02.24}
 
 \chapter{Введение в базы данных}
 
@@ -79,9 +54,9 @@
 Представляют собой группу операторов для определения данных. Они работают с целыми таблицами. Такие операторы SQL используются в тех случаях, когда нужно внести в базу новую таблицу или, напротив, удалить старую. Они включают в себя следующие командные слова:
 
 \begin{itemize}
-    \item \code{CREATE} - создание нового объекта в существующей базе.
-    \item \code{ALTER} - изменение существующего объекта.
-    \item \code{DROP} - удаление объекта из базы.
+    \item \allocation{CREATE} - создание нового объекта в существующей базе.
+    \item \allocation{ALTER} - изменение существующего объекта.
+    \item \allocation{DROP} - удаление объекта из базы.
 \end{itemize}
 
 \subsection{DML (Data Manipulation Language)}
@@ -89,10 +64,10 @@
 Эти операторы языка SQL предназначены для манипуляции данными. С их помощью меняется наполнение таблиц. Они позволяют изменять значение строк, столбцов и прочих атрибутов. Такие операторы SQL, например, позволяют удалить информацию о сотруднике, который больше не работает в компании, или исправить данные действующих специалистов. Эти операторы SQL представлены следующими командными словами:
 
 \begin{itemize}
-    \item \code{SELECT} - позволяет выбрать данные в соответствии с необходимым условием.
-    \item \code{INSERT} - осуществляют добавление новых данных.
-    \item \code{UPDATE} - производит замену существующих данных.
-    \item \code{DELETE} - удаление информации.
+    \item \allocation{SELECT} - позволяет выбрать данные в соответствии с необходимым условием.
+    \item \allocation{INSERT} - осуществляют добавление новых данных.
+    \item \allocation{UPDATE} - производит замену существующих данных.
+    \item \allocation{DELETE} - удаление информации.
 \end{itemize}
 
 \subsection{DCL (Data Control Language)}
@@ -100,9 +75,9 @@
 Это операторы SQL, предназначенные для определения доступа к данным. С их помощью можно закрыть или открыть для пользователей работу с базой. Такие операторы необходимы, чтобы ограничить кого-либо из сотрудников в доступе к информации или, наоборот, позволить работать с базой новому специалисту.
 
 \begin{itemize}
-    \item \code{GRANT} - предоставляет доступ к объекту.
-    \item \code{REVOKE} - аннулирует выданное ранее разрешение на доступ.
-    \item \code{DENY} - запрет, который прекращает действие разрешения.
+    \item \allocation{GRANT} - предоставляет доступ к объекту.
+    \item \allocation{REVOKE} - аннулирует выданное ранее разрешение на доступ.
+    \item \allocation{DENY} - запрет, который прекращает действие разрешения.
 \end{itemize}
 
 \subsection{TCL (Transaction Control Language)}
@@ -111,12 +86,8 @@
 
 При этом вы сначала вводите сумму, а затем подтверждаете отправку платежа кодом, который вам присылает банк. Если операция не будет подтверждена, то транзакция отменится автоматически.
 \begin{itemize}
-    \item \code{BEGIN TRANSACTION} - начало транзакции.
-    \item \code{COMMIT TRANSACTION} - изменение команд транзакции.
-    \item \code{ROLLBACK TRANSACTION} - отказ в транзакции.
-    \item \code{SAVE TRANSACTION} - формирование промежуточной точки сохранения внутри операции.
+    \item \allocation{BEGIN TRANSACTION} - начало транзакции.
+    \item \allocation{COMMIT TRANSACTION} - изменение команд транзакции.
+    \item \allocation{ROLLBACK TRANSACTION} - отказ в транзакции.
+    \item \allocation{SAVE TRANSACTION} - формирование промежуточной точки сохранения внутри операции.
 \end{itemize}
-
-
-
-\end{document}

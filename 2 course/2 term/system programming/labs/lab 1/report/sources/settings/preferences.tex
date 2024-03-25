@@ -1,0 +1,103 @@
+% настройки polyglossia
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+% локализация
+\addto\captionsrussian{
+	\renewcommand{\figurename}{Рисунок}%
+	\renewcommand{\partname}{Глава}
+	\renewcommand{\contentsname}{\centerline{Содержание}}
+	\renewcommand{\listingscaption}{Листинг}
+}
+
+% основной шрифт документа
+\setmainfont{Times New Roman}
+\newfontfamily\cyrillicfont{Arial}
+
+% настройка полей
+\geometry{top=2cm}
+\geometry{bottom=2cm}
+\geometry{left=2cm}
+\geometry{right=2cm}
+\geometry{bindingoffset=0cm}
+
+% настройка ссылок и метаданных документа
+\hypersetup{unicode=true,colorlinks=true,linkcolor=black,citecolor=green,filecolor=magenta,urlcolor=cyan,
+	pdftitle={\docname},
+	pdfauthor={\studentname},
+	pdfsubject={\subject},
+	pdfcreator={\studentname},
+	pdfproducer={Overleaf},
+	pdfkeywords={\subject}
+}
+
+% настройка подсветки кода и окружения для листингов
+\usemintedstyle{colorful}
+\newenvironment{code}{\captionsetup{type=listing}}{}
+
+% шрифт для листингов с лигатурами
+\setmonofont{FiraCode-Regular.otf}[
+	SizeFeatures={Size=10},
+	Path = templates/,
+	Contextuals=Alternate
+]
+
+% оформления подписи рисунка
+\captionsetup[figure]{labelsep = period}
+
+% подпись таблицы
+\DeclareCaptionFormat{hfillstart}{\hfill#1#2#3\par}
+\captionsetup[table]{format=hfillstart,labelsep=newline,justification=centering,skip=-10pt,textfont=bf}
+
+% путь к каталогу с рисунками
+\graphicspath{{fig/}}
+
+% Внесение titlepage в учёт счётчика страниц
+\makeatletter
+\renewenvironment{titlepage} {
+	\thispagestyle{empty}
+}
+\makeatother
+
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+\titlelabel{\thetitle.\quad}
+
+% для удобного конспектирования математики
+\mathtoolsset{showonlyrefs=true}
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{proposition}[theorem]{Утверждение}
+\theoremstyle{definition}
+\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem{problem}{Задача}[section]
+\theoremstyle{remark}
+\newtheorem*{nonum}{Решение}
+
+% настоящее матожидание
+\newcommand{\MExpect}{\mathsf{M}}
+
+% объявили оператор!
+\DeclareMathOperator{\sgn}{\mathop{sgn}}
+
+% перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{} {\hbox{$\mathsurround=0pt #1$}}{}}
+
+% выделение текста (` `)
+\tikzset{baseline, inner sep=2pt, minimum height=12pt, rounded corners=2pt}
+\newcommand{\allocation}[1]{\mbox{\ttfamily \tikz \node[anchor=base,fill=black!12, align=left]{#1};}}
+
+% настройка отображения списков
+\setlist{noitemsep}
+% \setlist[1]{\labelindent=\parindent} % < Usually a good idea
+\setlist[itemize]{leftmargin=*}
+% \setlist[itemize,1]{label=$\triangleleft$}
+\setlist[enumerate]{labelsep=*, leftmargin=1.6pc}
+\setlist[enumerate,1]{label=\arabic*., ref=\arabic*}
+\setlist[enumerate,2]{label=\emph{\alph*}.,ref=\theenumi.\emph{\alph*}}
+\setlist[enumerate,3]{label=\roman*., ref=\theenumii.\roman*}
+\setlist[description]{font=\sffamily\bfseries}
+
+% отображение нумерования section как 1, 2, 3 и тд, а не 0.1, 0.2, 0.3 
+\renewcommand{\thesection}{\arabic{section}}

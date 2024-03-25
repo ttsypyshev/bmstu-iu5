@@ -11,7 +11,7 @@ ECHO 3. Вывести параметры
 ECHO 4. Вывести справку из файла
 ECHO 5. Выход
 
-choice /C:12345 /N "Выберите пункт меню:"code .
+choice /C:12345 /N "Выберите пункт меню:"
 echo.
 IF ERRORLEVEL 5 GOTO EXIT
 IF ERRORLEVEL 4 GOTO DISPLAY_REFERENCE
@@ -24,7 +24,7 @@ goto EXIT
 :DISPLAY_MESSAGE
 echo Вывод сообщения на экран:
 echo Работа выполнена студентом группы ИУ5-41Б Цыпышев Т.А.
-pauseW
+pause
 goto MAIN_MENU
 
 :IMITATE_PATH
@@ -51,9 +51,9 @@ goto MAIN_MENU
 IF "%1"=="y" CLS
 echo Выход. До свидания!
 pause
-EXIT /B
+EXIT /B 0
 
 :NO_PARAMETERS
 ECHO Необходимо указать параметры командной строки.
-ECHO Пример: lab2.bat y reference.txt
+ECHO Пример: lab.bat y reference.txt
 EXIT /B 1

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Название страницы -->
+    <title>Калькулятор</title>
+    <!-- Подключение таблицы стилей -->
+    <link rel="stylesheet" href="light-theme.css" id="theme">
+</head>
+
+<body>
+    <!-- Контейнер для калькулятора -->
+    <div class="calculator-container">
+        <!-- Результат вычислений -->
+        <div id="result" class="result">
+            0
+        </div>
+        <!-- Кнопки калькулятора -->
+        <div>
+            <div>
+                <!-- Кнопки операций: очистка, изменение знака, проценты, деление -->
+                <button id="btn_op_sign" class="my-btn secondary">+/-</button>
+                <button id="btn_op_percent" class="my-btn secondary">%</button>
+                <button id="btn_op_divide" class="my-btn secondary">/</button>
+                <button id="btn_op_clear" class="my-btn secondary">C</button>
+            </div>
+            <div>
+                <button id="btn_op_sqrt" class="my-btn secondary">√</button>
+                <button id="btn_op_square" class="my-btn secondary">x²</button>
+                <button id="btn_op_factorial" class="my-btn secondary">x!</button>
+                <button id="btn_op_triple_zero" class="my-btn secondary">Back</button>
+            </div>
+            <div>
+                <!-- Кнопки цифр и операции умножения -->
+                <button id="btn_digit_7" class="my-btn">7</button>
+                <button id="btn_digit_8" class="my-btn">8</button>
+                <button id="btn_digit_9" class="my-btn">9</button>
+                <button id="btn_op_mult" class="my-btn primary">*</button>
+            </div>
+            <div>
+                <!-- Кнопки цифр и операции вычитания -->
+                <button id="btn_digit_4" class="my-btn">4</button>
+                <button id="btn_digit_5" class="my-btn">5</button>
+                <button id="btn_digit_6" class="my-btn">6</button>
+                <button id="btn_op_minus" class="my-btn primary">-</button>
+            </div>
+            <div>
+                <!-- Кнопки цифр и операции сложения -->
+                <button id="btn_digit_1" class="my-btn">1</button>
+                <button id="btn_digit_2" class="my-btn">2</button>
+                <button id="btn_digit_3" class="my-btn">3</button>
+                <button id="btn_op_plus" class="my-btn primary">+</button>
+            </div>
+            <div>
+                <!-- Кнопки цифр, десятичной точки и равенства -->
+                <button id="btn_digit_0" class="my-btn">0</button>
+                <button id="btn_op_triple_zero" class="my-btn">000</button>
+                <button id="btn_decimal" class="my-btn">.</button>
+                <button id="btn_op_equal" class="my-btn primary">=</button>
+            </div>
+        </div>
+        <!-- Кнопка смены темы -->
+        <div class="theme-button">
+            <button id="theme_toggle" class="my-btn theme">Сменить тему</button>
+        </div>
+        <!-- Выпадающий список -->
+        <div class="dropdown">
+            <select>
+                <option value="1">Опция 1</option>
+                <option value="2">Опция 2</option>
+                <option value="3">Опция 3</option>
+            </select>
+        </div>
+    </div>
+    <!-- Кнопка отображения информации о цели ЛР -->
+    <div class="buttons-container">
+        <button class="details-btn" onclick="toggleDetails('target')">Цель данной ЛР</button>
+        <!-- Содержание информации о выполнителе (скрыто по умолчанию) -->
+        <div class="details-content" id="target-details-content">
+            Цель данной лабораторной работы - знакомство с инструментами построения пользовательских интерфейсов
+            web-сайтов: HTML, CSS. В ходе выполнения работы, вам предстоит ознакомиться с кодом реализации простого
+            калькулятора, и затем выполнить задания по варианту.
+        </div>
+    </div>
+
+    <!-- Кнопка отображения информации о выполнителе -->
+    <div class="buttons-container">
+        <button class="details-btn" onclick="toggleDetails('author')">ЛР выполнена Цыпышевым Т.А.</button>
+        <!-- Содержание информации о выполнителе (скрыто по умолчанию) -->
+        <div class="details-content" id="author-details-content">
+            ФИО: Цыпышев Тимофей Александрович<br>
+            Группа: ИУ5-41Б
+        </div>
+    </div>
+
+    <!-- Кнопка для перехода на GitHub репозиторий -->
+    <div class="buttons-container">
+        <a href="https://github.com/ttsypyshev/bmstu-iu5" target="_blank" class="github-btn">Ссылка на GitHub</a>
+    </div>
+</body>
+
+<script src="calculator.js"></script>
+
+
+</html>

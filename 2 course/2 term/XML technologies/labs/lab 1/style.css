@@ -1,0 +1,146 @@
+/* Стили для body */
+body {
+    background-image: url('assets/background_image.jpg'); /* задний фон */
+    background-size: cover; /* размер фона */
+    font-family: 'Roboto', sans-serif; /* шрифт */
+    color: #fff; /* цвет текста */
+}
+
+/* Стили для контейнера калькулятора */
+.calculator-container {
+    width: 300px; /* ширина */
+    margin: 0 auto; /* центрирование по горизонтали */
+    padding: 20px; /* внутренние отступы */
+    background-color: #333; /* цвет фона */
+    border-radius: 20px; /* радиус скругления углов */
+}
+
+/* Стили для отображения результата вычислений */
+.result {
+    width: 260px; /* ширина */
+    height: 70px; /* высота */
+    margin-bottom: 20px; /* отступ снизу */
+    padding: 15px; /* внутренние отступы */
+    background-color: rgba(255, 255, 255, 0.2); /* цвет фона с прозрачностью */
+    border-radius: 15px; /* радиус скругления углов */
+    text-align: right; /* выравнивание текста по правому краю */
+    font-size: 1.8rem; /* размер текста */
+    font-weight: bold; /* жирное начертание */
+}
+
+/* Общие стили для кнопок */
+.my-btn {
+    width: 60px; /* ширина */
+    height: 60px; /* высота */
+    margin: 5px; /* отступы */
+    border-radius: 10px; /* радиус скругления углов */
+    border: none; /* отсутствие границы */
+    background-color: #4CAF50; /* цвет фона */
+    color: #fff; /* цвет текста */
+    font-size: 1.2rem; /* размер текста */
+    font-weight: bold; /* жирное начертание */
+    cursor: pointer; /* курсор в виде стрелки */
+    transition: background-color 0.3s; /* плавное изменение цвета фона */
+}
+
+/* Эффект при наведении на кнопку */
+.my-btn:hover {
+    background-color: #45a049; /* изменение цвета фона */
+}
+
+/* Стили для вспомогательных кнопок */
+.my-btn.secondary {
+    background-color: #f44336; /* цвет фона */
+}
+
+/* Стили для основных кнопок */
+.my-btn.primary {
+    background-color: #2196F3; /* цвет фона */
+}
+
+/* Стили для кнопки равенства */
+.my-btn.execute {
+    width: 135px; /* ширина */
+}
+
+/* Стили для кнопки смены темы */
+.my-btn.theme {
+    width: 200px; /* ширина */
+    background-color: #222222; /* цвет фона */
+}
+
+/* Выравнивание кнопки смены темы по центру */
+.theme-button {
+    text-align: center; /* центрирование текста */
+}
+
+/* Стили для описания задания лабораторной работы */
+.task {
+    margin-top: 20px; /* отступ сверху */
+    text-align: center; /* выравнивание текста по центру */
+    font-weight: bold; /* жирное начертание */
+}
+
+/* Стили для контейнера с кнопкой и информацией о выполнителе */
+.buttons-container {
+    margin-top: 20px; /* отступ сверху */
+    text-align: center; /* выравнивание текста по центру */
+}
+
+/* Общие стили для кнопки информации о выполнителе и кнопки перехода на GitHub */
+.details-btn,
+.github-btn {
+    display: inline-block; /* элемент в виде блока */
+    width: 200px; /* ширина */
+    height: 50px; /* высота */
+    line-height: 50px; /* высота строки */
+    background-color: #4CAF50; /* цвет фона */
+    color: #fff; /* цвет текста */
+    border: none; /* отсутствие границы */
+    border-radius: 10px; /* радиус скругления углов */
+    cursor: pointer; /* курсор в виде стрелки */
+    text-decoration: none; /* отсутствие подчеркивания */
+}
+
+/* Стили для содержания информации о выполнителе (скрыто по умолчанию) */
+.details-content {
+    display: none; /* скрыто */
+    margin-top: 10px; /* отступ сверху */
+    padding: 10px; /* внутренние отступы */
+    background-color: #222222; /* цвет фона */
+    border-radius: 10px; /* радиус скругления углов */
+}
+
+/* Эффект при наведении на кнопку информации о выполнителе и кнопку перехода на GitHub */
+.details-btn:hover,
+.github-btn:hover {
+    background-color: #45a049; /* изменение цвета фона */
+}
+
+/* Показ содержания информации о выполнителе */
+.show {
+    display: block; /* отображение */
+}
+
+/* Стили для выпадающего списка */
+.dropdown {
+    margin-top: 20px; /* отступ сверху */
+    text-align: center; /* выравнивание текста по центру */
+}
+
+/* Стили для выпадающего списка */
+.dropdown select {
+    width: 200px; /* ширина */
+    height: 40px; /* высота */
+    border-radius: 10px; /* радиус скругления углов */
+    border: none; /* отсутствие границы */
+    background-color: #4CAF50; /* цвет фона */
+    color: #fff; /* цвет текста */
+    font-size: 1rem; /* размер текста */
+    font-weight: bold; /* жирное начертание */
+}
+
+/* Эффект при наведении на выпадающий список */
+.dropdown select:hover {
+    background-color: #45a049; /* изменение цвета фона */
+}

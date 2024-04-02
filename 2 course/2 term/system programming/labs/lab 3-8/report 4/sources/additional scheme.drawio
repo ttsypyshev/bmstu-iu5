@@ -1,0 +1,308 @@
+<mxfile host="app.diagrams.net" modified="2024-04-02T20:15:34.374Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0" etag="tuAojNTMgYF4fqjoxxD2" version="24.2.1" type="device">
+  <diagram name="Страница — 1" id="OKVKBSbTBkw6wrIr7Vz-">
+    <mxGraphModel dx="1234" dy="1182" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="YbSYtKWISypykAvVHEbF-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-2" target="YbSYtKWISypykAvVHEbF-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-2" value="Начало Getch" style="rounded=1;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-3" target="YbSYtKWISypykAvVHEbF-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-3" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;AH&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;01h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-4" target="YbSYtKWISypykAvVHEbF-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-4" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;INT&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;21h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-5" value="Конец Getch" style="rounded=1;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-9" target="YbSYtKWISypykAvVHEbF-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-9" value="&lt;div style=&quot;font-size: 12px;&quot;&gt;Начало&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;Print header&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-10" target="YbSYtKWISypykAvVHEbF-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-10" value="Сохранение регистров AX, BX на стеке" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-11" target="YbSYtKWISypykAvVHEbF-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-11" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt; &lt;span style=&quot;font-size: 12px;&quot;&gt;AH&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;02h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-12" target="YbSYtKWISypykAvVHEbF-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-12" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;DL&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;218&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-13" target="YbSYtKWISypykAvVHEbF-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-13" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;INT&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;21h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-14" target="YbSYtKWISypykAvVHEbF-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-14" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;DL&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;196&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-15" target="YbSYtKWISypykAvVHEbF-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-15" value="&lt;div style=&quot;font-size: 12px;&quot;&gt;Выполнение&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;INT&lt;/span&gt; &lt;span style=&quot;font-size: 12px;&quot;&gt;21h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;6 раз&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-16" target="YbSYtKWISypykAvVHEbF-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-16" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;DL&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;191&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-18" target="YbSYtKWISypykAvVHEbF-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-18" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;INT&lt;/span&gt; &lt;span style=&quot;font-size: 12px;&quot;&gt;21h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="680" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-19" target="YbSYtKWISypykAvVHEbF-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-19" value="Запись регистров BX, AX из стека " style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="840" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-22" target="YbSYtKWISypykAvVHEbF-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-22" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;CALL&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;CLRF&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="760" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-23" value="&lt;div style=&quot;font-size: 12px;&quot;&gt;Конец&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;Print header&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="920" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-37" target="YbSYtKWISypykAvVHEbF-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-37" value="&lt;div style=&quot;font-size: 12px;&quot;&gt;Начало&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;Print line&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-39" target="YbSYtKWISypykAvVHEbF-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-39" value="Сохранение регистров AX, BX на стеке" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-41" target="YbSYtKWISypykAvVHEbF-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-41" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt; &lt;span style=&quot;font-size: 12px;&quot;&gt;AH&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;02h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-43" target="YbSYtKWISypykAvVHEbF-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-43" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;DL&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;195&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-45" target="YbSYtKWISypykAvVHEbF-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-45" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;INT&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;21h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-47" target="YbSYtKWISypykAvVHEbF-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-47" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;DL&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;196&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-49" target="YbSYtKWISypykAvVHEbF-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-49" value="&lt;div style=&quot;font-size: 12px;&quot;&gt;Выполнение&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;INT&lt;/span&gt; &lt;span style=&quot;font-size: 12px;&quot;&gt;21h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;6 раз&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-51" target="YbSYtKWISypykAvVHEbF-55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-51" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;DL&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;180&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-55" target="YbSYtKWISypykAvVHEbF-59">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-55" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;INT&lt;/span&gt; &lt;span style=&quot;font-size: 12px;&quot;&gt;21h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="680" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-57" target="YbSYtKWISypykAvVHEbF-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-57" value="Запись регистров BX, AX из стека " style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="840" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-59" target="YbSYtKWISypykAvVHEbF-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-59" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;CALL&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;CLRF&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="760" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-60" value="&lt;div style=&quot;font-size: 12px;&quot;&gt;Конец&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;Print line&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="920" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-63" value="&lt;div style=&quot;font-size: 12px;&quot;&gt;Начало Putch&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-64" value="Сохранение регистров AX, BX на стеке" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-65" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;AH&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;02h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-66" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;DL&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;179&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-67" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;INT&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;21h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-68" target="YbSYtKWISypykAvVHEbF-69">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-68" value="Удаление и сохранение регистров AX, BX на стеке" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-69" target="YbSYtKWISypykAvVHEbF-70">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-69" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;AH&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;02h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-70" target="YbSYtKWISypykAvVHEbF-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-70" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;DL&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;AL&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-71" target="YbSYtKWISypykAvVHEbF-72">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-71" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;INT&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;21h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="680" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-72" target="YbSYtKWISypykAvVHEbF-73">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-72" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt; &lt;span style=&quot;font-size: 12px;&quot;&gt;AH&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;09h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="760" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-93" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-73" target="YbSYtKWISypykAvVHEbF-74">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-73" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;DX&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;OFFSET DEF&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="840" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-94" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-74" target="YbSYtKWISypykAvVHEbF-75">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-74" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;INT&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;21h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="920" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-99" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-75" target="YbSYtKWISypykAvVHEbF-76">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="1080" />
+              <mxPoint x="650" y="1080" />
+              <mxPoint x="650" y="100" />
+              <mxPoint x="730" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-75" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;AH&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;40h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1000" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-76" target="YbSYtKWISypykAvVHEbF-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-76" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;BX&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;1&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-77" target="YbSYtKWISypykAvVHEbF-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-77" value="Сохранение регистра СX на стеке" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-78" target="YbSYtKWISypykAvVHEbF-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-78" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;CX&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;2&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-79" target="YbSYtKWISypykAvVHEbF-80">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-79" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV  &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;DX&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;OFFSET HEXDGT&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-80" target="YbSYtKWISypykAvVHEbF-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-80" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;INT&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;21h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-81" target="YbSYtKWISypykAvVHEbF-82">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-81" value="Удаление регистра СX на стеке" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-106" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-82" target="YbSYtKWISypykAvVHEbF-83">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-82" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;AH&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;02h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-83" target="YbSYtKWISypykAvVHEbF-84">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-83" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;MOV&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;DL&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;179&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="680" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-84" target="YbSYtKWISypykAvVHEbF-85">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-84" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;INT&lt;/span&gt;  &lt;span style=&quot;font-size: 12px;&quot;&gt;21h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="760" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-109" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-85" target="YbSYtKWISypykAvVHEbF-86">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-85" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;CALL&lt;/span&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;CLRF&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="840" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=default;fontSize=12;" edge="1" parent="1" source="YbSYtKWISypykAvVHEbF-86" target="YbSYtKWISypykAvVHEbF-87">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-86" value="Удаление регистров AX, BX на стеке" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="920" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YbSYtKWISypykAvVHEbF-87" value="Конец Putch" style="rounded=1;whiteSpace=wrap;html=1;fontColor=default;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="1000" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -5,5 +5,11 @@
  00060H 0007CH 0001DH DATA               
  00080H 0017FH 00100H STK                
 
+  Address         Publics by Name
+
+
+  Address         Publics by Value
+
+
 Program entry point at 0000:0000
 

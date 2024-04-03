@@ -28,23 +28,77 @@
 
 \section{Краткая инструкция по работе со справочником Help6}
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[scale=0.7]{3_help6_help}
-    \caption{Управление в справочнике Help6}
-    \label{pic:pic_name}
-  \end{center}
-\end{figure}
+\begin{enumerate}
+  \item Справочник по варианту (Help 6) запускается через эмулятор DOSBox 0.74-3.
+  \item Пропуск начальной заставки осуществляется нажатием любой клавиши:
+  \item После появляется “Main Menu”:
+        \begin{figure}[H]
+          \begin{center}
+            \includegraphics[scale=0.7]{3_help6_menu.png}
+            \caption{Управление в справочнике Help6}
+            \label{pic:pic_name}
+          \end{center}
+        \end{figure}
+  \item В появившемся списке можно выбрать нужный раздел нажатием клавиши “Enter”:
+        \begin{figure}[H]
+          \begin{center}
+            \includegraphics[scale=0.7]{3_help6_page.png}
+            \caption{Управление в справочнике Help6}
+            \label{pic:pic_name}
+          \end{center}
+        \end{figure}
+  \item Аналогично для каждой темы и записи: по клавише “Enter” будет открываться подробное описание или содержание элемента.
+  \item Для работы со справочником предусмотрены команды (посмотреть на F1):
+        \begin{figure}[H]
+          \begin{center}
+            \includegraphics[scale=0.7]{3_help6_help}
+            \caption{Управление в справочнике Help6}
+            \label{pic:pic_name}
+          \end{center}
+        \end{figure}
+\end{enumerate}
 
 \section{Результаты поиска команды ОС}
 
+Поиск команды произведем в справочнике Help5. Для этого обратимся в “DOS Commands”:
+
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[scale=0.8]{4_sort_info}
-    \caption{Информация о команде Sort}
+    \includegraphics[scale=0.6]{4_help5_menu}
+    \caption{}
     \label{pic:pic_name}
   \end{center}
 \end{figure}
+
+Найдем и выберем “Sort” и получим справку по блоку:
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[scale=0.7]{4_help5_commands}
+    \caption{}
+    \label{pic:pic_name}
+  \end{center}
+\end{figure}
+
+В данном разделе можно изучить команда Sort:
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[scale=0.7]{4_sort_info_1}
+    \caption{}
+    \label{pic:pic_name}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[scale=0.7]{4_sort_info_2}
+    \caption{}
+    \label{pic:pic_name}
+  \end{center}
+\end{figure}
+
+Результат выполнения функции для .txt файла:
 
 \begin{figure}[H]
   \begin{center}
@@ -56,42 +110,88 @@
 
 \section{Результаты поиска прерывания ОС}
 
-Для этого нужно зайти в раздел API Index:
+Поиск данного в варианте прерывания, переведенного в шестнадцатеричной системе счисления в 1eH, будет осуществляться в Help4.
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[scale=0.7]{5_API_index}
-    \caption{Меню API index}
+    \includegraphics[scale=0.65]{5_help4_start.png}
+    \caption{}
     \label{pic:pic_name}
   \end{center}
 \end{figure}
 
-Переходим в DOS Functions:
+Перейдем в разделы помощи:
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[scale=0.7]{5_dos_menu}
-    \caption{Меню прерываний DOS}
+    \includegraphics[scale=0.65]{5_help4_menu.png}
+    \caption{}
     \label{pic:pic_name}
   \end{center}
 \end{figure}
 
-Выбираем 09H и получаем справку по прерыванию:
+Затем в прерывания DOS:
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[scale=0.7]{5_DOS_09H}
-    \caption{Прерывание "Выдать строку на дисплей"}
+    \includegraphics[scale=0.7]{5_help4_help.png}
+    \caption{}
+    \label{pic:pic_name}
+  \end{center}
+\end{figure}
+
+Далее в символьный ввод-вывод:
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[scale=0.7]{5_help4_group.png}
+    \caption{}
+    \label{pic:pic_name}
+  \end{center}
+\end{figure}
+
+Там выберем прерывание 09H, то есть 9 в шестнадцатеричной системе счисления:
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[scale=0.7]{5_help4_function.png}
+    \caption{}
+    \label{pic:pic_name}
+  \end{center}
+\end{figure}
+
+И получим справку по необходимому нам прерыванию:
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[scale=0.7]{5_help4_info.png}
+    \caption{}
     \label{pic:pic_name}
   \end{center}
 \end{figure}
 
 \section{Результаты поиска управляющего блока ОС}
 
+Описание структуры BPB можно найти в справочнике Help6.
+Для этого выбираем раздел управляющие блоки DOS \& BIOS Data Structures:
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[scale=0.65]{6_help6_menu.png}
+    \caption{}
+    \label{pic:pic_name}
+  \end{center}
+\end{figure}
+
 Выбираем блок MCB:
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[scale=0.7]{6_mcb_1}
+    \includegraphics[scale=0.65]{6_help6_page.png}
+    \caption{}
+    \label{pic:pic_name}
+  \end{center}
+\end{figure}
+
+И получаем справку по блоку:
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[scale=0.65]{6_mcb_1}
   \end{center}
   \begin{center}
-    \includegraphics[scale=0.7]{6_mcb_2}
+    \includegraphics[scale=0.65]{6_mcb_2}
     \caption{MCB: Memory Control Block}
     \label{pic:pic_name}
   \end{center}

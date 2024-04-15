@@ -11,6 +11,14 @@ let currentValue = '0';
 // Обновление отображения результата с ограничением по длине
 function updateDisplay() {
     let displayValue = currentValue.toString(); // Преобразование в строку
+    if (displayValue.includes('.')) {
+        const parts = displayValue.split('.');
+        // Если есть точка и нули справа от неё
+        if (parts.length === 2 && parts[1].match(/^0+$/)) {
+            parts[1] = ''; // Удаляем все нули справа
+            displayValue = parts.join('.');
+        }
+    }
     if (displayValue.includes('e+')) {
         const parts = displayValue.split('e+');
         if (parts[0].length > MAX_RESULT_LENGTH) {

@@ -1,0 +1,474 @@
+Turbo Assembler	 Version 3.1	    05/07/24 23:05:33	    Page 1
+lab6.asm
+
+
+
+      1				     ; Лабораторная	работа №6
+      2				     ; Цыпышев Т.А. ИУ5-41 Вар. 20
+      3				     ;===============================================================================
+      4
+      5	0000			     prgr segment
+      6								    assume CS:prgr,DS:data
+      7
+      8	0000				     begin:							     ; Начало	    +
+      9				     программы
+     10	0000  B8 0000s						    mov	   AX,data
+     11	0003  8E C0						    mov	   ES,AX
+     12
+     13	0005  BE 0080						    mov	   SI,80h
+     14	0008  BF 00B2r						    mov	   DI,offset destination
+     15	000B  8A 0C						    mov	   CL,[SI]
+     16	000D  80 F9 00						    cmp	   CL,0
+     17	0010  74 0D						    je	   nope
+     18	0012  B5 00						    mov	   CH,0
+     19	0014  51						    push   CX
+     20	0015  46						    inc	   SI
+     21	0016  46						    inc	   SI
+     22	0017  FC						    cld
+     23	0018  F3> A4						    rep	   movsb
+     24	001A  06						    push   ES
+     25	001B  1F						    pop	   DS
+     26	001C  EB 10 90						    jmp	   layer1
+     27	001F				     nope:							     ; Нет		    +
+     28				     параметров
+     29	001F  B8 0000s						    mov	   AX,data
+     30	0022  8E D8						    mov	   DS,AX
+     31	0024  B4 09						    mov	   AH,09h
+     32	0026  BA 00C6r						    mov	   DX,offset error_1
+     33	0029  CD 21						    int	   21h
+     34	002B  E9 01B6						    jmp	   exit_program
+     35
+     36	002E				     layer1:							     ; Первый слой+
+     37				     проверки
+     38	002E  BE 00B2r						    mov	   SI,offset destination
+     39	0031  BF 011Dr						    mov	   DI,offset tmp1
+     40	0034  B1 09						    mov	   CL,9
+     41	0036  F3> A4						    rep	   movsb
+     42	0038				     check_first_1:						     ; Проверка	    +
+     43				     первого параметра
+     44	0038  BF 0109r						    mov	   DI,offset parameter1_1
+     45	003B  BE 011Dr						    mov	   SI,offset tmp1
+     46	003E  B1 09						    mov	   CL,9
+     47	0040  F3> A6						    repe   cmpsb
+     48	0042  75 03						    jne	   check_first_2
+     49	0044  EB 1A 90						    jmp	   layer2
+     50	0047				     check_first_2:						     ; Проверка	    +
+     51				     второго варианта первого параметра
+     52	0047  BF 0112r						    mov	   DI,offset parameter1_2
+     53	004A  BE 011Dr						    mov	   SI,offset tmp1
+     54	004D  B1 09						    mov	   CL,9
+     55	004F  F3> A6						    repe   cmpsb
+     56	0051  75 03						    jne	   print_error_1
+     57	0053  EB 0B 90						    jmp	   layer2
+Turbo Assembler	 Version 3.1	    05/07/24 23:05:33	    Page 2
+lab6.asm
+
+
+
+     58	0056				     print_error_1:						     ; Вывод	    +
+     59				     ошибки
+     60	0056  B4 09						    mov	   AH,09h
+     61	0058  BA 00DEr						    mov	   DX,offset error_2
+     62	005B  CD 21						    int	   21h
+     63	005D  E9 0184						    jmp	   exit_program
+     64
+     65	0060				     layer2:							     ; Второй слой+
+     66				     проверки
+     67	0060  BE 00B2r						    mov	   SI,offset destination
+     68	0063  83 C6 0A						    add	   SI,10
+     69	0066  BF 0126r						    mov	   DI,offset tmp2
+     70	0069  B1 01						    mov	   CL,1
+     71	006B  F3> A4						    rep	   movsb
+     72	006D				     second_check_1:						     ; Проверка	    +
+     73				     второго параметра
+     74	006D  BF 011Br						    mov	   DI,offset parameter2_1
+     75	0070  BE 0126r						    mov	   SI,offset tmp2
+     76	0073  B1 01						    mov	   CL,1
+     77	0075  F3> A6						    repe   cmpsb
+     78	0077  75 09						    jne	   second_check_2
+     79	0079  C6 06 0080r 01 90					    mov	   falg[1],1
+     80	007F  EB 2C 90						    jmp	   third_check_2
+     81	0082				     second_check_2:						     ; Проверка	    +
+     82				     второго варианта второго параметра
+     83	0082  BF 011Cr						    mov	   DI,offset parameter2_2
+     84	0085  BE 0126r						    mov	   SI,offset tmp2
+     85	0088  B1 01						    mov	   CL,1
+     86	008A  F3> A6						    repe   cmpsb
+     87	008C  75 03						    jne	   third_check_1
+     88	008E  EB 1D 90						    jmp	   third_check_2
+     89
+     90	0091				     third_check_1:						     ; Первая	    +
+     91				     проверка третьего параметра
+     92	0091  BE 00B2r						    mov	   SI,offset destination
+     93	0094  83 C6 0A						    add	   SI,10
+     94	0097  BF 0127r						    mov	   DI,offset tmp3
+     95	009A  B1 04						    mov	   CL,4
+     96	009C  F3> A4						    rep	   movsb
+     97	009E  BF 0130r						    mov	   DI,offset password
+     98	00A1  BE 0127r						    mov	   SI,offset tmp3
+     99	00A4  B1 04						    mov	   CL,4
+    100	00A6  F3> A6						    repe   cmpsb
+    101	00A8  75 1F						    jne	   print_error_3
+    102	00AA  EB 27 90						    jmp	   output
+    103	00AD				     third_check_2:						     ; Вторая	    +
+    104				     проверка третьего параметра
+    105	00AD  BE 00B2r						    mov	   SI,offset destination
+    106	00B0  83 C6 0C						    add	   SI,12
+    107	00B3  BF 0127r						    mov	   DI,offset tmp3
+    108	00B6  B1 04						    mov	   CL,4
+    109	00B8  F3> A4						    rep	   movsb
+    110	00BA  BF 0130r						    mov	   DI,offset password
+    111	00BD  BE 0127r						    mov	   SI,offset tmp3
+    112	00C0  B1 04						    mov	   CL,4
+    113	00C2  F3> A6						    repe   cmpsb
+    114	00C4  75 03						    jne	   print_error_3
+Turbo Assembler	 Version 3.1	    05/07/24 23:05:33	    Page 3
+lab6.asm
+
+
+
+    115	00C6  EB 0B 90						    jmp	   output
+    116	00C9				     print_error_3:						     ; Вывод	    +
+    117				     ошибки третьего параметра
+    118	00C9  B4 09						    mov	   AH,09h
+    119	00CB  BA 00FBr						    mov	   DX,offset error_3
+    120	00CE  CD 21						    int	   21h
+    121	00D0  E9 0111						    jmp	   exit_program
+    122
+    123	00D3				     output:							     ; Вывод
+    124	00D3  B8 0002						    mov	   AX,02h
+    125	00D6  CD 10						    int	   10h
+    126	00D8				     clear:							     ; Очистка
+    127	00D8  80 3E 0080r 01					    cmp	   falg[1],1
+    128	00DD  75 3D						    jne	   input_instructions_2
+    129	00DF  B4 09						    mov	   AH,09h
+    130	00E1  BA 0134r						    mov	   DX,offset help_text_1
+    131	00E4  CD 21						    int	   21h
+    132	00E6  E8 0100						    CALL   CLRF
+    133	00E9  B4 09						    mov	   AH,09h
+    134	00EB  BA 016Ar						    mov	   DX,offset help_text_2
+    135	00EE  CD 21						    int	   21h
+    136	00F0  E8 00F6						    CALL   CLRF
+    137	00F3  E8 00F3						    CALL   CLRF
+    138	00F6				     input_instructions:					     ; Ввод		    +
+    139				     инструкций
+    140	00F6  B4 09						    mov	   AH,09h
+    141	00F8  BA 01A2r						    mov	   DX,offset info_text
+    142	00FB  CD 21						    int	   21h
+    143	00FD  B4 01						    mov	   AH,01h
+    144	00FF  CD 21						    int	   21h
+    145	0101  3C 2A						    cmp	   AL,42
+    146	0103  74 3A						    je	   next_step
+    147	0105  B4 02						    mov	   AH,02h
+    148	0107  B2 08						    mov	   DL,8
+    149	0109  CD 21						    int	   21h
+    150	010B  B4 02						    mov	   AH,02h
+    151	010D  B2 00						    mov	   DL,0
+    152	010F  CD 21						    int	   21h
+    153	0111  B4 02						    mov	   AH,02h
+    154	0113  B2 0D						    mov	   DL,13
+    155	0115  CD 21						    int	   21h
+    156	0117  E2 DD						    loop   input_instructions
+    157	0119  EB 2A 90						    jmp	   greeting_message
+    158
+    159	011C				     input_instructions_2:					     ; Ввод		    +
+    160				     инструкций (вторая	часть)
+    161	011C  B4 09						    mov	   AH,09h
+    162	011E  BA 01C0r						    mov	   DX,offset hlpno
+    163	0121  CD 21						    int	   21h
+    164	0123  B4 01						    mov	   AH,01h
+    165	0125  CD 21						    int	   21h
+    166	0127  3C 0D						    cmp	   AL,13
+    167	0129  74 14						    je	   next_step
+    168	012B  B4 02						    mov	   AH,02h
+    169	012D  B2 08						    mov	   DL,8
+    170	012F  CD 21						    int	   21h
+    171	0131  B4 02						    mov	   AH,02h
+Turbo Assembler	 Version 3.1	    05/07/24 23:05:33	    Page 4
+lab6.asm
+
+
+
+    172	0133  B2 00						    mov	   DL,0
+    173	0135  CD 21						    int	   21h
+    174	0137  B4 02						    mov	   AH,02h
+    175	0139  B2 0D						    mov	   DL,13
+    176	013B  CD 21						    int	   21h
+    177	013D  E2 DD						    loop   input_instructions_2
+    178
+    179	013F				     next_step:							     ; Следующий   +
+    180				     шаг
+    181	013F  E8 00A7						    CALL   CLRF
+    182	0142  E8 00A4						    CALL   CLRF
+    183
+    184	0145				     greeting_message:						     ;			    +
+    185				     Приветственное сообщение
+    186	0145  B4 09						    mov	   AH,09h
+    187	0147  BA 0000r						    mov	   DX,offset parameter_line
+    188	014A  CD 21						    int	   21h
+    189	014C  B4 40						    mov	   AH,40h
+    190	014E  BB 0001						    mov	   BX,1
+    191	0151  59						    pop	   CX
+    192	0152  BA 00B2r						    mov	   DX,offset destination
+    193	0155  CD 21						    int	   21h
+    194	0157  E8 008F						    CALL   CLRF
+    195	015A  B4 40						    mov	   AH,40h
+    196	015C  BB 0001						    mov	   BX,1
+    197	015F  B9 0017						    mov	   CX,23
+    198	0162  BA 0081r						    mov	   DX,offset dashes
+    199	0165  CD 21						    int	   21h
+    200
+    201	0167  E8 007F						    CALL   CLRF
+    202	016A  B4 09						    mov	   AH,09h
+    203	016C  BA 0019r						    mov	   DX,offset frst
+    204	016F  CD 21						    int	   21h
+    205	0171  B4 40						    mov	   AH,40h
+    206	0173  BB 0001						    mov	   BX,1
+    207	0176  B9 0009						    mov	   CX,9
+    208	0179  BA 011Dr						    mov	   DX,offset tmp1
+    209	017C  CD 21						    int	   21h
+    210
+    211	017E  E8 0068						    CALL   CLRF
+    212	0181  B4 09						    mov	   AH,09h
+    213	0183  80 3E 0080r 01					    cmp	   falg[1],1
+    214	0188  75 13						    jne	   print_second_parameter
+    215	018A  BA 0030r						    mov	   DX,offset scnd1
+    216	018D  CD 21						    int	   21h
+    217	018F  B4 40						    mov	   AH,40h
+    218	0191  BB 0001						    mov	   BX,1
+    219	0194  B9 0001						    mov	   CX,1
+    220	0197  BA 0126r						    mov	   DX,offset tmp2
+    221	019A  EB 04 90						    jmp	   print_third_parameter
+    222
+    223	019D				     print_second_parameter:					     ; Вывод	    +
+    224				     второго параметра
+    225	019D  BA 0048r						    mov	   DX,offset scnd2
+    226
+    227	01A0				     print_third_parameter:					     ; Вывод	    +
+    228				     третьего параметра
+Turbo Assembler	 Version 3.1	    05/07/24 23:05:33	    Page 5
+lab6.asm
+
+
+
+    229	01A0  CD 21						    int	   21h
+    230	01A2  E8 0044						    CALL   CLRF
+    231	01A5  B4 09						    mov	   AH,09h
+    232	01A7  BA 0068r						    mov	   DX,offset thrd
+    233	01AA  CD 21						    int	   21h
+    234	01AC  B4 40						    mov	   AH,40h
+    235	01AE  BB 0001						    mov	   BX,1
+    236	01B1  B9 0009						    mov	   CX,9
+    237	01B4  BA 01B7r						    mov	   DX,offset stars
+    238	01B7  CD 21						    int	   21h
+    239
+    240	01B9  E8 002D						    CALL   CLRF
+    241	01BC  E8 002A						    CALL   CLRF
+    242	01BF  B4 09						    mov	   AH,09h
+    243	01C1  BA 0098r						    mov	   DX,offset exit_instruction
+    244	01C4  CD 21						    int	   21h
+    245	01C6  E8 002D						    CALL   GETCH
+    246	01C9  B4 02						    mov	   AH,02h
+    247	01CB  B2 08						    mov	   DL,8
+    248	01CD  CD 21						    int	   21h
+    249	01CF  B4 02						    mov	   AH,02h
+    250	01D1  B2 00						    mov	   DL,0
+    251	01D3  CD 21						    int	   21h
+    252	01D5  E8 0011						    CALL   CLRF
+    253	01D8  80 3E 0080r 01					    cmp	   falg[1],1
+    254	01DD  75 05						    jne	   exit_program
+    255	01DF  B8 0002						    mov	   AX,02h
+    256	01E2  CD 10						    int	   10h
+    257
+    258	01E4				     exit_program:						     ; Конец	    +
+    259				     программы
+    260	01E4  B8 4C00						    mov	   AX,4C00h
+    261	01E7  CD 21						    int	   21h
+    262
+    263	01E9			     CLRF proc
+    264	01E9  B4 02						    mov	   AH,02h
+    265	01EB  B2 0A						    mov	   DL,10
+    266	01ED  CD 21						    int	   21h
+    267	01EF  B4 02						    mov	   AH,02h
+    268	01F1  B2 0D						    mov	   DL,13
+    269	01F3  CD 21						    int	   21h
+    270	01F5  C3						    RET
+    271	01F6			     CLRF endp
+    272
+    273	01F6			     GETCH proc
+    274	01F6  B4 01						    mov	   AH,01h
+    275	01F8  CD 21						    int	   21h
+    276	01FA  C3						    RET
+    277	01FB			     GETCH endp
+    278
+    279	01FB			     prgr ends
+    280
+    281	0000			     data segment
+    282	0000  4C 69 6E 65 20 6F	66+	     parameter_line	db 'Line of parameters are: $'
+    283	      20 70 61 72 61 6D	65+
+    284	      74 65 72 73 20 61	72+
+    285	      65 3A 20 24
+Turbo Assembler	 Version 3.1	    05/07/24 23:05:33	    Page 6
+lab6.asm
+
+
+
+    286	0019  2B 20 66 69 72 73	74+	     frst		db '+ first parameter is: $'
+    287	      20 70 61 72 61 6D	65+
+    288	      74 65 72 20 69 73	3A+
+    289	      20 24
+    290	0030  2B 20 73 65 63 6F	6E+	     scnd1		db '+ second parameter is: $'
+    291	      64 20 70 61 72 61	6D+
+    292	      65 74 65 72 20 69	73+
+    293	      3A 20 24
+    294	0048  2D 20 74 68 65 72	65+	     scnd2		db '- there is no second parameter $'
+    295	      20 69 73 20 6E 6F	20+
+    296	      73 65 63 6F 6E 64	20+
+    297	      70 61 72 61 6D 65	74+
+    298	      65 72 20 24
+    299	0068  2B 20 74 68 69 72	64+	     thrd		db '+ third parameter is: $'
+    300	      20 70 61 72 61 6D	65+
+    301	      74 65 72 20 69 73	3A+
+    302	      20 24
+    303	007F  02*(00)			     falg		db 2 dup (0)
+    304	0081  17*(2D)			     dashes		db 23 dup ('-')
+    305	0098  50 72 65 73 73 20	61+	     exit_instruction	db 'Press any key to exit... $'
+    306	      6E 79 20 6B 65 79	20+
+    307	      74 6F 20 65 78 69	74+
+    308	      2E 2E 2E 20 24
+    309	00B2  14*(23)			     destination db 20 dup ('#')
+    310	00C6  54 68 65 72 65 20	61+	     error_1		db 'There are no paremeters$'
+    311	      72 65 20 6E 6F 20	70+
+    312	      61 72 65 6D 65 74	65+
+    313	      72 73 24
+    314	00DE  45 72 72 6F 72 20	6F+	     error_2		db 'Error of the first parameter$'
+    315	      66 20 74 68 65 20	66+
+    316	      69 72 73 74 20 70	61+
+    317	      72 61 6D 65 74 65	72+
+    318	      24
+    319	00FB  41 63 63 65 73 73	20+	     error_3		db 'Access denied$'
+    320	      64 65 6E 69 65 64	24
+    321	0109  54 73 79 70 79 73	68+	     parameter1_1	db 'Tsypyshev'
+    322	      65 76
+    323	0112  74 73 79 70 79 73	68+	     parameter1_2	db 'tsypyshev'
+    324	      65 76
+    325	011B  79			     parameter2_1	db 'y'
+    326	011C  6E			     parameter2_2	db 'n'
+    327	011D  09*(31)			     tmp1		db 9 dup ('1')
+    328	0126  01*(32)			     tmp2		db 1 dup ('2')
+    329	0127  09*(33)			     tmp3		db 9 dup ('3')
+    330	0130  31 32 33 34		     password		db '1234'
+    331	0134  54 68 69 73 20 70	72+	     help_text_1	db 'This program just shows, how to use	launch-parameters$'
+    332	      6F 67 72 61 6D 20	6A+
+    333	      75 73 74 20 73 68	6F+
+    334	      77 73 2C 20 68 6F	77+
+    335	      20 74 6F 20 75 73	65+
+    336	      20 6C 61 75 6E 63	68+
+    337	      2D 70 61 72 61 6D	65+
+    338	      74 65 72 73 24
+    339	016A  63 72 65 61 74 65	64+	     help_text_2	db 'created by Ivanov Ivan, student of IU5-41 group, var.20$'
+    340	      20 62 79 20 49 76	61+
+    341	      6E 6F 76 20 49 76	61+
+    342	      6E 2C 20 73 74 75	64+
+Turbo Assembler	 Version 3.1	    05/07/24 23:05:33	    Page 7
+lab6.asm
+
+
+
+    343	      65 6E 74 20 6F 66	20+
+    344	      49 55 35 2D 34 31	20+
+    345	      67 72 6F 75 70 2C	20+
+    346	      76 61 72 2E 32 30	24
+    347	01A2  50 72 65 73 73 20	2A+	     info_text		db 'Press * to continue	$'
+    348	      20 74 6F 20 63 6F	6E+
+    349	      74 69 6E 75 65 20	24
+    350	01B7  09*(2A)			     stars		db 9 dup ('*')
+    351	01C0  54 68 65 72 65 20	69+	     hlpno		db 'There is no	spoon... Press ENTER $'
+    352	      73 20 6E 6F 20 73	70+
+    353	      6F 6F 6E 2E 2E 2E	20+
+    354	      50 72 65 73 73 20	45+
+    355	      4E 54 45 52 20 24
+    356
+    357	01E2			     data ends
+    358
+    359	0000			     stk segment stack
+    360	0000  0100*(00)				 db 256	dup (0)
+    361	0100			     stk ends
+    362
+    363				     end begin
+Turbo Assembler	 Version 3.1	    05/07/24 23:05:33	    Page 8
+Symbol Table
+
+
+
+
+Symbol Name		Type   Value			   Cref	(defined at #)
+
+??DATE			Text   "05/07/24"
+??FILENAME		Text   "lab6	"
+??TIME			Text   "23:05:33"
+??VERSION		Number 030A
+@CPU			Text   0101H
+@CURSEG			Text   STK			   #5  #281  #359
+@FILENAME		Text   LAB6
+@WORDSIZE		Text   2			   #5  #281  #359
+BEGIN			Near   PRGR:0000		   #8  363
+CHECK_FIRST_1		Near   PRGR:0038		   #42
+CHECK_FIRST_2		Near   PRGR:0047		   48  #50
+CLEAR			Near   PRGR:00D8		   #126
+CLRF			Near   PRGR:01E9		   132	136  137  181  182  194	 201  211  230	240  241  252  #263
+DASHES			Byte   DATA:0081		   198	#304
+DESTINATION		Byte   DATA:00B2		   14  38  67  92  105	192  #309
+ERROR_1			Byte   DATA:00C6		   32  #310
+ERROR_2			Byte   DATA:00DE		   61  #314
+ERROR_3			Byte   DATA:00FB		   119	#319
+EXIT_INSTRUCTION	Byte   DATA:0098		   243	#305
+EXIT_PROGRAM		Near   PRGR:01E4		   34  63  121	254  #258
+FALG			Byte   DATA:007F		   79  127  213	 253  #303
+FRST			Byte   DATA:0019		   203	#286
+GETCH			Near   PRGR:01F6		   245	#273
+GREETING_MESSAGE	Near   PRGR:0145		   157	#184
+HELP_TEXT_1		Byte   DATA:0134		   130	#331
+HELP_TEXT_2		Byte   DATA:016A		   134	#339
+HLPNO			Byte   DATA:01C0		   162	#351
+INFO_TEXT		Byte   DATA:01A2		   141	#347
+INPUT_INSTRUCTIONS	Near   PRGR:00F6		   #138	 156
+INPUT_INSTRUCTIONS_2	Near   PRGR:011C		   128	#159  177
+LAYER1			Near   PRGR:002E		   26  #36
+LAYER2			Near   PRGR:0060		   49  57  #65
+NEXT_STEP		Near   PRGR:013F		   146	167  #179
+NOPE			Near   PRGR:001F		   17  #27
+OUTPUT			Near   PRGR:00D3		   102	115  #123
+PARAMETER1_1		Byte   DATA:0109		   44  #321
+PARAMETER1_2		Byte   DATA:0112		   52  #323
+PARAMETER2_1		Byte   DATA:011B		   74  #325
+PARAMETER2_2		Byte   DATA:011C		   83  #326
+PARAMETER_LINE		Byte   DATA:0000		   187	#282
+PASSWORD		Byte   DATA:0130		   97  110  #330
+PRINT_ERROR_1		Near   PRGR:0056		   56  #58
+PRINT_ERROR_3		Near   PRGR:00C9		   101	114  #116
+PRINT_SECOND_PARAMETER	Near   PRGR:019D		   214	#223
+PRINT_THIRD_PARAMETER	Near   PRGR:01A0		   221	#227
+SCND1			Byte   DATA:0030		   215	#290
+SCND2			Byte   DATA:0048		   225	#294
+SECOND_CHECK_1		Near   PRGR:006D		   #72
+SECOND_CHECK_2		Near   PRGR:0082		   78  #81
+STARS			Byte   DATA:01B7		   237	#350
+THIRD_CHECK_1		Near   PRGR:0091		   87  #90
+THIRD_CHECK_2		Near   PRGR:00AD		   80  88  #103
+THRD			Byte   DATA:0068		   232	#299
+TMP1			Byte   DATA:011D		   39  45  53  208  #327
+Turbo Assembler	 Version 3.1	    05/07/24 23:05:33	    Page 9
+Symbol Table
+
+
+
+TMP2			Byte   DATA:0126		   69  75  84  220  #328
+TMP3			Byte   DATA:0127		   94  98  107	111  #329
+
+Groups & Segments	Bit Size Align	Combine	Class	   Cref	(defined at #)
+
+DATA			16  01E2 Para	none		   6  10  29  #281
+PRGR			16  01FB Para	none		   #5  6
+STK			16  0100 Para	Stack		   #359
+

@@ -1,40 +1,19 @@
-function in_dict(key,dict)
-{
-    return dict.hasOwnProperty(key);
-}
 export class ProductComponent {
     constructor(parent) {
         this.parent = parent
     }
 
     getHTML(data) {
-        var sx = ''
-        var bd = ''
-        var country = ''
-        var city = ''
-        var occ = ''
-        if (in_dict("sex", data)===true){
-            if (data.sex===2){
-                sx = "мужской"
-            }
-            else{
-                sx= "женский"
-            }
-        }
-        else {
-            sx = "не указан"
-        }
-        if (in_dict("country", data)===true){country = data.country.title}
-        else {country = "не указана"}
-        if (in_dict("bdate", data)===true){bd = data.bdate}
-        else {bd = "не указан"}
-        if (in_dict("city", data)===true){city = data.city.title}
-        else {city = "не указан"}
-        if (in_dict("occupation", data)===true){occ = data.occupation.name}
-        else {occ = "не указано"}
+        const sx = data.hasOwnProperty("sex") ? (data.sex === 2 ? "мужской" : "женский") : "не указан";
+        const bd = data.hasOwnProperty("bdate") ? data.bdate : "не указан";
+        const country = data.hasOwnProperty("country") ? data.country.title : "не указана";
+        const city = data.hasOwnProperty("city") ? data.city.title : "не указан";
+        const occ = data.hasOwnProperty("occupation") ? data.occupation.name : "не указано";
+
         return (
             `
-                <div class="card mb-3" style="width: 540px; margin-top: 10px; margin-left: 10px;">
+            <div style="margin-top: 10px; margin-left: 10px;"> 
+                <div class="card mb-3" style="width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <img src="${data.photo_400_orig}" class="img-fluid" alt="картинка">
@@ -51,6 +30,7 @@ export class ProductComponent {
                         </div>
                     </div>
                 </div>
+            </div>
             `
         )
     }

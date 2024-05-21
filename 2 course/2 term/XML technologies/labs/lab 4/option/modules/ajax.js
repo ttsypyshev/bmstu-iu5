@@ -6,8 +6,14 @@ class Ajax {
 
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
-                const data = JSON.parse(xhr.response);
-                callback(data);
+                if (xhr.status === 200) {
+                    const data = JSON.parse(xhr.response);
+                    callback(data);
+                } else {
+                    // Обрабатываем ошибку
+                    console.error("Ошибка AJAX запроса:", xhr.status, xhr.statusText);
+                    // Можно добавить уведомление пользователю
+                }
             }
         };
     }

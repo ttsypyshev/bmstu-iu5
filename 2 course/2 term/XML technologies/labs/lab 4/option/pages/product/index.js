@@ -14,7 +14,13 @@ export class ProductPage {
 
     getData(){
         ajax.post(urls.getUserInfo(this.id), (data) =>{
-            this.renderData(data.response[0])
+            if (data.response && data.response.length > 0) {
+                this.renderData(data.response[0]);
+            } else {
+                // Обрабатываем ошибку
+                console.error("Ошибка получения данных:", data);
+                // Можно добавить уведомление пользователю
+            }
         })
     }
 

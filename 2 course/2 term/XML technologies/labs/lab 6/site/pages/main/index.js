@@ -16,11 +16,11 @@ export class MainPage {
         return `
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" id="main-page"></div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" style="width: 50px; height: 80%">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="false"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" style="width: 50px; height: 80%">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="false"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
@@ -29,7 +29,7 @@ export class MainPage {
     }
 
     async getData() {
-        return await ajax.get(urls.getProducts());
+        return await ajax.get(urls.getProducts({}));
     }
 
     clickCard(e) {
@@ -52,6 +52,8 @@ export class MainPage {
                     productCard.parent.querySelector('.carousel-item').classList.add('active');
                 }
             });
+        } else {
+            this.pageRoot.innerHTML = '<p class="text-center">Failed to load products. Please try again later.</p>';
         }
     }
 }

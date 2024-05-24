@@ -8,7 +8,7 @@ export class BackButtonComponent {
     }
 
     getHTML() {
-        return `<button id="back-button" class="btn btn-primary" type="button">Назад</button>`;
+        return `<button id="back-button" class="btn btn-secondary mt-3" type="button">Назад</button>`;
     }
 
     render(listener) {

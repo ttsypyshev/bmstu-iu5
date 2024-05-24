@@ -1,56 +1,41 @@
 class Ajax {
-    // Метод для выполнения GET-запроса
     async get(url) {
         try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`Ошибка AJAX запроса: ${response.status} ${response.statusText}`);
-            }
-            const result = await response.json();
-            return result;
+            const resp = await fetch(url);
+            if (!resp.ok) throw new Error(`HTTP error! status: ${resp.status}`);
+            return await resp.json();
         } catch (error) {
-            console.error(error.message);
-            alert(`Произошла ошибка при выполнении запроса: ${error.message}`);
+            console.error("Fetch GET error:", error);
             return null;
         }
     }
 
-    // Метод для выполнения POST-запроса
     async post(url, content) {
         try {
-            const response = await fetch(url, {
+            const resp = await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(content)
             });
-            if (!response.ok) {
-                throw new Error(`Ошибка AJAX запроса: ${response.status} ${response.statusText}`);
-            }
-            const result = await response.json();
-            return result;
+            if (!resp.ok) throw new Error(`HTTP error! status: ${resp.status}`);
+            return await resp.json();
         } catch (error) {
-            console.error(error.message);
-            alert(`Произошла ошибка при выполнении запроса: ${error.message}`);
+            console.error("Fetch POST error:", error);
             return null;
         }
     }
 
-    // Метод для выполнения DELETE-запроса
     async delete(url) {
         try {
-            const response = await fetch(url, {
+            const resp = await fetch(url, {
                 method: 'DELETE'
             });
-            if (!response.ok) {
-                throw new Error(`Ошибка AJAX запроса: ${response.status} ${response.statusText}`);
-            }
-            const result = await response.json();
-            return result;
+            if (!resp.ok) throw new Error(`HTTP error! status: ${resp.status}`);
+            return await resp.json();
         } catch (error) {
-            console.error(error.message);
-            alert(`Произошла ошибка при выполнении запроса: ${error.message}`);
+            console.error("Fetch DELETE error:", error);
             return null;
         }
     }

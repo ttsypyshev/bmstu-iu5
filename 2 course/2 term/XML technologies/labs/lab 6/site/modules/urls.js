@@ -4,10 +4,8 @@ class Urls {
     }
 
     getProducts(params = {}) {
-        let query_string = Object.entries(params)
-            .map(([key, value]) => `${key}=${value}`)
-            .join('&');
-        return `${this.url}${query_string ? '?' + query_string : ''}`;
+        const query_string = new URLSearchParams(params).toString();
+        return `${this.url}${query_string ? `?${query_string}` : ''}`;
     }
 
     getProductById(productID) {
@@ -15,7 +13,7 @@ class Urls {
     }
 
     addProduct() {
-        return this.url;
+        return `${this.url}/`;
     }
 
     deleteProduct(productID) {
@@ -24,4 +22,3 @@ class Urls {
 }
 
 export const urls = new Urls();
-

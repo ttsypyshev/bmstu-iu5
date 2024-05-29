@@ -25,6 +25,26 @@ export class MainPage {
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
+            <button id="add-product" class="btn btn-primary mt-3">Добавить продукт</button>
+            <div id="add-product-form" style="display: none;">
+                <h3>Добавить продукт</h3>
+                <form id="product-form">
+                    <div class="mb-3">
+                        <label for="product-title" class="form-label">Название</label>
+                        <input type="text" class="form-control" id="product-title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="product-text" class="form-label">Описание</label>
+                        <textarea class="form-control" id="product-text" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="product-src" class="form-label">URL картинки</label>
+                        <input type="url" class="form-control" id="product-src" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Сохранить</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-add">Отмена</button>
+                </form>
+            </div>
         `;
     }
 
@@ -36,6 +56,37 @@ export class MainPage {
         const cardId = e.target.dataset.id;
         const productPage = new ProductPage(this.parent, cardId);
         productPage.render();
+    }
+
+    showAddProductForm() {
+        document.getElementById('add-product-form').style.display = 'block';
+    }
+
+    hideAddProductForm() {
+        document.getElementById('add-product-form').style.display = 'none';
+    }
+
+    async submitAddProductForm(e) {
+        e.preventDefault();
+        const title = document.getElementById('product-title').value;
+        const text = document.getElementById('product-text').value;
+        const src = document.getElementById('product-src').value;
+
+        const newProduct = { title, text, src };
+        const result = await ajax.post(urls.addProduct(), newProduct);
+        if (result) {
+            alert('Продукт успешно добавлен');
+            this.hideAddProductForm();
+            this.render();
+        } else {
+            alert('Ошибка при добавлении продукта');
+        }
+    }
+
+    addEventListeners() {
+        document.getElementById('add-product').addEventListener('click', this.showAddProductForm.bind(this));
+        document.getElementById('cancel-add').addEventListener('click', this.hideAddProductForm.bind(this));
+        document.getElementById('product-form').addEventListener('submit', this.submitAddProductForm.bind(this));
     }
 
     async render() {
@@ -55,5 +106,7 @@ export class MainPage {
         } else {
             this.pageRoot.innerHTML = '<p class="text-center">Failed to load products. Please try again later.</p>';
         }
+
+        this.addEventListeners();
     }
 }

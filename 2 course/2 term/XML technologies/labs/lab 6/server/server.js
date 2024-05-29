@@ -1,76 +1,90 @@
+const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const express = require('express');
 
-const app = express(); // 1
-
+const app = express();
 const host = 'localhost';
 const port = 8000;
 
-const handler = (req, res) => {
-    res.writeHead(200);
-    res.end('ПСП такой крутой!');
+app.use(express.json());
+
+const readJson = (fileName) => {
+    const file = fs.readFileSync(path.join(__dirname, 'db', fileName), 'utf8');
+    const json = JSON.parse(file);
+    return json;
 };
+
+const writeJson = (fileName, data) => {
+    fs.writeFileSync(path.join(__dirname, 'db', fileName), JSON.stringify(data, null, 4));
+};
+
+const storageName = 'products.json';
 
 app.get('/product', (req, res) => {
     res.json({ product: 'Учебные предметы' });
 });
 
-app.listen(port, host, () => { // 3
-    console.log(`Сервер запущен по адресу http://${host}:${port}`);
-});
-
-const readJson = (fileName) => {
-    const file = fs.readFileSync(path.join(__dirname, 'db', fileName), "utf8");
-    const json = JSON.parse(file);
-    return json;
-};
-
-const storageName = 'products.json';
-
 app.get('/products/', (req, res) => {
     const products = readJson(storageName);
-    var asc = req.query.ascending;
-    var alpha = req.query.alphabet;
-    if (alpha == "true") {
-        products.sort((a, b) => {
-            return (a.title).localeCompare(b.title);
-        })
-        if (asc == "false") {
-            products.reverse();
+    let sortedProducts = products;
+
+    // Sorting logic
+    const { ascending, alphabet } = req.query;
+    if (alphabet === 'true') {
+        sortedProducts = products.sort((a, b) => a.title.localeCompare(b.title));
+        if (ascending === 'false') {
+            sortedProducts.reverse();
         }
-    }
-    else {
-        if (asc == "true") {
-            products.sort((a, b) => {
+    } else {
+        sortedProducts = products.sort((a, b) => {
+            if (ascending === 'true') {
                 return a.id - b.id;
-            })
-        }
-        if (asc == "false") {
-            products.sort((a, b) => {
-                (a.title).localeCompare(b.title);
-            })
-            products.reverse();
-        }
+            } else {
+                return b.id - a.id;
+            }
+        });
     }
-    res.send(products);
-})
+
+    res.json(sortedProducts);
+});
+
 app.get('/products/:id', (req, res) => {
-    const id = req.params.id; // 1
+    const id = req.params.id;
 
     const numberId = Number.parseInt(id);
-    if (Number.isNaN(numberId)) { // 2
-        res.status(400).send({ status: 'Bad Request', message: 'id must be number!' });
+    if (Number.isNaN(numberId)) {
+        res.status(400).json({ status: 'Bad Request', message: 'id must be number!' });
+        return;
     }
 
     const products = readJson(storageName);
-    const product = products.find((value) => { // 3
-        return value.id === numberId;
-    });
+    const product = products.find((value) => value.id === numberId);
 
-    if (product) { // 4
-        res.send(product);
+    if (product) {
+        res.json(product);
     } else {
-        res.status(404).send({ status: 'Not Found', message: `not found stock with id ${numberId}` });
+        res.status(404).json({ status: 'Not Found', message: `not found stock with id ${numberId}` });
     }
+});
+
+app.post('/products', (req, res) => {
+    const newProduct = req.body;
+
+    if (!newProduct || !newProduct.title || !newProduct.text || !newProduct.src) {
+        res.status(400).json({ status: 'Bad Request', message: 'Invalid product data' });
+        return;
+    }
+
+    const products = readJson(storageName);
+    const newProductId = products.length > 0 ? products[products.length - 1].id + 1 : 1;
+    newProduct.id = newProductId;
+
+    products.push(newProduct);
+    writeJson(storageName, products);
+
+    res.status(201).json({ status: 'Success', message: 'Product added successfully', data: newProduct });
+});
+
+app.listen(port, host, () => {
+    console.log(`Сервер запущен по адресу http://${host}:${port}`);
 });

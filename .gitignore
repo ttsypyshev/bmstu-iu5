@@ -448,7 +448,7 @@ TSWLatexianTemp*
 *.lyx~
 
 # Kile
-*.backup
+# *.backup
 
 # gummi
 .*.swp

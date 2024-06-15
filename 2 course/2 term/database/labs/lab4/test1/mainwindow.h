@@ -1,8 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+
 #include <QMainWindow>
 #include <QPushButton>
 #include <QLineEdit>
+
 namespace Ui {
 class MainWindow;
 }
@@ -20,4 +22,5 @@ private:
     QPushButton *btnHi;
     QLineEdit *leFio;
 };
+
 #endif // MAINWINDOW_H

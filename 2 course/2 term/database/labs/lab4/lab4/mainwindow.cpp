@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->btnSelectAll, SIGNAL(clicked(bool)), this, SLOT(selectAll()));
     connect(ui->btnAdd, SIGNAL(clicked(bool)), this, SLOT(add()));
     connect(ui->btnDel, SIGNAL(clicked(bool)), this, SLOT(del()));
+    connect(ui->btnEdit, SIGNAL(clicked(bool)), this, SLOT(edit()));
 
     // Количество столбцов
     ui->twOrg->setColumnCount(4);
@@ -150,49 +151,101 @@ void MainWindow::add()
 
 void MainWindow::del()
 {
-// Подключение к БД
-if( !dbconn.isOpen() )
-{
-dbconnect();
-if( !dbconn.isOpen() )
-{
-QMessageBox::critical(this,"Error",dbconn.lastError().text());
-return;
+    // Подключение к БД
+    if( !dbconn.isOpen() )
+    {
+        dbconnect();
+        if( !dbconn.isOpen() )
+        {
+            QMessageBox::critical(this,"Error",dbconn.lastError().text());
+            return;
+        }
+    }
+    // Получить номер выбранной строки в компоненте таблицы
+    int currow = ui->twOrg->currentRow();
+    // Если он меньше 0 (строка не выбрана), то
+    // сообщение об ошибке и выход из функции
+    if( currow < 0 )
+    {
+        QMessageBox::critical(this,"Error","Not selected row!");
+        return;
+    }
+    // Спросить у пользователя подтверждение удаления записи
+    // Используется статический метод QMessageBox::question
+    // для задания вопроса, который возвращает код нажатой кнопки
+    if( QMessageBox::question(this,"Delete","Delete row?",
+                              QMessageBox::Cancel,QMessageBox::Ok)==QMessageBox::Cancel)
+        return;
+    // Создать объект запроса
+    QSqlQuery query(dbconn);
+    // Создать строку запроса.
+    // Вместо подготовки запроса и передачи параметров значение параметра
+    // конкатенируется со строкой запроса
+    // Обратите,что строковое значение помещается в одинарные кавычки
+    // Значение выбирается из компонента таблицы методом item(row,col)
+    QString sqlstr = "delete from org where abbr = '"
+            + ui->twOrg->item(currow,0)->text() + "'";
+    // Выполнить строку запроса и проверить его успешность
+    if( !query.exec(sqlstr) )
+    {
+        ui->teResult->append( query.lastQuery());
+        QMessageBox::critical(this,"Error",query.lastError().text());
+        return;
+    }
+    // Вывести сообщение об удалении строки
+    ui->teResult->append( QString("Del %1 rows").arg(query.numRowsAffected()) );
+    // Обновить содержимое компонента таблицы
+    selectAll();
 }
-}
-// Получить номер выбранной строки в компоненте таблицы
-int currow = ui->twOrg->currentRow();
-// Если он меньше 0 (строка не выбрана), то
-// сообщение об ошибке и выход из функции
-if( currow < 0 )
+
+void MainWindow::edit()
 {
-QMessageBox::critical(this,"Error","Not selected row!");
-return;
-}
-// Спросить у пользователя подтверждение удаления записи
-// Используется статический метод QMessageBox::question
-// для задания вопроса, который возвращает код нажатой кнопки
-if( QMessageBox::question(this,"Delete","Delete row?",
-QMessageBox::Cancel,QMessageBox::Ok)==QMessageBox::Cancel)
-return;
-// Создать объект запроса
-QSqlQuery query(dbconn);
-// Создать строку запроса.
-// Вместо подготовки запроса и передачи параметров значение параметра
-// конкатенируется со строкой запроса
-// Обратите,что строковое значение помещается в одинарные кавычки
-// Значение выбирается из компонента таблицы методом item(row,col)
-QString sqlstr = "delete from org where abbr = '"
-+ ui->twOrg->item(currow,0)->text() + "'";
-// Выполнить строку запроса и проверить его успешность
-if( !query.exec(sqlstr) )
-{
-ui->teResult->append( query.lastQuery());
-QMessageBox::critical(this,"Error",query.lastError().text());
-return;
-}
-// Вывести сообщение об удалении строки
-ui->teResult->append( QString("Del %1 rows").arg(query.numRowsAffected()) );
-// Обновить содержимое компонента таблицы
-selectAll();
+    // Подключение к БД
+    if (!dbconn.isOpen())
+    {
+        dbconnect();
+        if (!dbconn.isOpen())
+        {
+            QMessageBox::critical(this, "Error", dbconn.lastError().text());
+            return;
+        }
+    }
+
+    // Получить номер выбранной строки в компоненте таблицы
+    int currow = ui->twOrg->currentRow();
+    // Если он меньше 0 (строка не выбрана), то
+    // сообщение об ошибке и выход из функции
+    if (currow < 0)
+    {
+        QMessageBox::critical(this, "Error", "Not selected row!");
+        return;
+    }
+
+    // Создать объект запроса
+    QSqlQuery query(dbconn);
+    // Создать строку запроса
+    QString sqlstr = "update org set abbr = ?, title = ?, city = ?, inn = ? where abbr = ?";
+    // Подготовить запрос
+    query.prepare(sqlstr);
+    // Передать параметры из полей ввода в запрос
+    query.bindValue(0, ui->leAbbr->text());
+    query.bindValue(1, ui->teTitle->toPlainText());
+    query.bindValue(2, ui->leCity->text());
+    // Если тип поля отличается от строкового, то преобразовать его
+    query.bindValue(3, ui->leInn->text().toLongLong());
+    // Передать старое значение abbr для условия where
+    query.bindValue(4, ui->twOrg->item(currow, 0)->text());
+
+    // Выполнить запрос
+    if (!query.exec())
+    {
+        ui->teResult->append(query.lastQuery());
+        QMessageBox::critical(this, "Error", query.lastError().text());
+        return;
+    }
+
+    // Если запрос выполнен, то вывести сообщение о редактировании строки
+    ui->teResult->append(QString("Edited %1 rows").arg(query.numRowsAffected()));
+    // Обновить содержимое компонента таблицы
+    selectAll();
 }

@@ -1,9 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "QMessageBox"
+
 #include <QFormLayout>
 #include <QLabel>
 #include <QDebug>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -31,16 +33,19 @@ MainWindow::MainWindow(QWidget *parent) :
     layout->addWidget(w);
     connect(btnHi,SIGNAL(clicked(bool)),this,SLOT(funHi(bool)));
 }
+
 MainWindow::~MainWindow()
 {
     delete leFio;
     delete btnHi;
     delete ui;
 }
+
 void MainWindow::on_btnHello_clicked()
 {
     QMessageBox::about(this,"info","Hello!");
 }
+
 void MainWindow::funHi(bool flag)
 {
     QString str = "Hello, " + leFio->text() + "!";

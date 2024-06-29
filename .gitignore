@@ -448,7 +448,7 @@ TSWLatexianTemp*
 *.lyx~
 
 # Kile
-*.backup
+# *.backup
 
 # gummi
 .*.swp
@@ -733,6 +733,11 @@ pyrightconfig.json
 # Ignore all local history of files
 .history
 .ionide
+
+### Web ###
+/*.rar
+/bar/*.css
+/bar/**.*.js
 
 ### VisualStudio ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -1124,3 +1129,5 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/clion+all,pycharm+all,visualstudio,visualstudiocode,c,c++,cmake,python,latex
+
+consts.js

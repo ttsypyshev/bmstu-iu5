@@ -1,0 +1,48 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.carousel-item {
+    padding: 10px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 80%
+}
+
+.carousel-control-prev {
+    left: 15px;
+}
+
+.carousel-control-next {
+    right: 15px;
+}
+
+.card {
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-img-top {
+    height: 500px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+#back-button {
+    display: block;
+    margin: 20px auto;
+    width: 100px;
+}

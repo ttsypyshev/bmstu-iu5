@@ -1130,4 +1130,6 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/clion+all,pycharm+all,visualstudio,visualstudiocode,c,c++,cmake,python,latex
 
+# My files/folder
 consts.js
+.vscode/

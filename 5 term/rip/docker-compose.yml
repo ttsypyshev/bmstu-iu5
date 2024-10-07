@@ -1,0 +1,113 @@
+# устанавливаем версию в соотвествии с необходимой нам
+# подробнее на https://docs.docker.com/compose/compose-file/compose-versioning/
+version: '3.7'
+
+# настройки и конфигурации, общие для всех контейнеров
+x-minio-common: &minio-common
+  image: quay.io/minio/minio:RELEASE.2022-10-15T19-57-03Z # устанавливаем image
+  # команда которая выполняется при запуске контейнера
+  # --console-address ":9001" - указываем запустить консоль администратора на порту 9001
+  #  http://minio{1...4}/data{1...2}  - указывает ноде адреса других нод,
+  # чтобы они могли связаться между собой
+  # если сломается одна из нод,
+  # остальные ноды это поймут и будут предпринимать действия чтобы сохранить файлы
+  command: server --console-address ":9001" http://minio{1...4}/data{1...2} 
+  environment: # env конфигурация, подробнее: https://github.com/KaymeKaydex/web-2022/tree/go-lab2/tutorials/lab2/golang#поговорим-про-переменные-окружения
+    MINIO_ACCESS_KEY: minio # пароль админа
+    MINIO_SECRET_KEY: minio124 # логин админа
+  expose:
+    - "9000" # открыть порты
+    - "9001"
+    # environment:
+    # MINIO_ROOT_USER: minioadmin
+    # MINIO_ROOT_PASSWORD: minioadmin
+  healthcheck: # проверка состояния работоспособности кластера происходит путем выполнения get запроса на http://localhost:9000/minio/health/live
+    test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+    interval: 30s
+    timeout: 20s
+    retries: 3
+
+# запускает 4 контейнера docker, в которых запущены экземпляры сервера minio.
+# используя обратный прокси-сервер nginx, балансировку нагрузки, вы можете получить доступ
+# через порт 9000.
+services:
+  minio1:
+    <<: *minio-common
+    hostname: minio1 # указываем что адрес внутри подсети docker будет http://minio1:9000/ и на порту 9001 для админки соотвественно
+    volumes: # куда физически переадресовать* память(в какие разделы) из виртуальной(в докере) на вашу машину. по сути это работает как хард линк на файл/папку
+      - data1-1:/data1
+      - data1-2:/data2
+
+  minio2: # аналогично ставим 2-4 ноды
+    <<: *minio-common
+    hostname: minio2
+    volumes:
+      - data2-1:/data1
+      - data2-2:/data2
+
+  minio3:
+    <<: *minio-common
+    hostname: minio3
+    volumes:
+      - data3-1:/data1
+      - data3-2:/data2
+
+  minio4:
+    <<: *minio-common
+    hostname: minio4
+    volumes:
+      - data4-1:/data1
+      - data4-2:/data2
+
+  nginx: # наш еще один сервис в подсети docker будет nginx 
+    image: nginx:1.19.2-alpine # исходники сервиса взять отсюда
+    hostname: nginx # hostname внутри подсети docker будет nginx
+    volumes:
+      # куда физически переадресовать* память(в какие разделы) из виртуальной(в докере) на вашу машину. по сути это работает как хард линк на файл/папку. 
+      # доступ даем на ro (read only)
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro 
+    ports:
+      - "9000:9000" # форвардим порт 9000 из нашей локальной сети(localhost) (forward port) на исхоодный(внутри подсети docker)(source port)
+      - "9001:9001" # левый порт - порт вашей локальной сети компьютера, таргетный. порт справа - соурс порт - порт внутри подсети докера. 
+    depends_on: # не запускай nginx пока не запустится весь кластер minio
+      - minio1
+      - minio2
+      - minio3
+      - minio4
+
+  postgres:
+    image: postgres:16.4
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:8.12
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@pgadmin.com
+      PGADMIN_DEFAULT_PASSWORD: password
+      PGADMIN_LISTEN_PORT: 80
+    ports:
+      - "15432:80"
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    depends_on:
+      - postgres
+
+## По умолчанию в этой конфигурации используется локальный драйвер docker по умолчанию,
+## Для пользовательских томов замените на конфигурацию драйвера тома.
+volumes:
+  data1-1:
+  data1-2:
+  data2-1:
+  data2-2:
+  data3-1:
+  data3-2:
+  data4-1:
+  data4-2:
+  postgres:
+  pgadmin:

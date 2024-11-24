@@ -5,7 +5,7 @@ q1=-0.5;
 
 plot(t,x(:,1),'b-',t,x(:,2),'g-',t, sin(t),'LineWidth',2)
 
-legend('x_1(t)', 'x_2(t)')
+legend('x_1(t)', 'x_2(t)', 'sin(t)')
 grid on
 xlabel('t, c')
 ylabel('x_i(t)')

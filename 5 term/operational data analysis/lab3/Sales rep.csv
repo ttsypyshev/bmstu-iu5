@@ -1,0 +1,65 @@
+Manager;Manager Number;Path;Sales Rep Name;Sales Rep Name1;Sales Rep Name2;Sales Rep Name3;Sales Rep ID
+Amanda Honda;104;Amanda Honda-Amalia Craig;Amalia Craig;Amanda Honda;Amalia Craig;;103
+Amanda Honda;104;Amanda Honda-Cart Lynch;Cart Lynch;Amanda Honda;Cart Lynch;;112
+Amanda Honda;104;Amanda Honda-Molly McKenzie;Molly McKenzie;Amanda Honda;Molly McKenzie;;159
+Amanda Honda;104;Amanda Honda-Sheila Hein;Sheila Hein;Amanda Honda;Sheila Hein;;176
+Brenda Gibson;109;Brenda Gibson-Dennis Johnson;Dennis Johnson;Brenda Gibson;Dennis Johnson;;121
+Brenda Gibson;109;Brenda Gibson-Ken Roberts;Ken Roberts;Brenda Gibson;Ken Roberts;;145
+Brenda Gibson;109;Brenda Gibson-Robert Kim;Robert Kim;Brenda Gibson;Robert Kim;;163
+Brenda Gibson;109;Brenda Gibson-William Fisher;William Fisher;Brenda Gibson;William Fisher;;185
+Carolyn Halmon;111;Stewart Wind-Carolyn Halmon-Cary Frank;Cary Frank;Stewart Wind;Carolyn Halmon;Cary Frank;113
+Carolyn Halmon;111;Stewart Wind-Carolyn Halmon-Edward Smith;Edward Smith;Stewart Wind;Carolyn Halmon;Edward Smith;152
+Carolyn Halmon;111;Stewart Wind-Carolyn Halmon-Lee Chin;Lee Chin;Stewart Wind;Carolyn Halmon;Lee Chin;149
+Carolyn Halmon;111;Stewart Wind-Carolyn Halmon-Ronald Milam;Ronald Milam;Stewart Wind;Carolyn Halmon;Ronald Milam;167
+David Laychak;118;John Greg-David Laychak-Amelia Fields;Amelia Fields;John Greg;David Laychak;Amelia Fields;105
+David Laychak;118;John Greg-David Laychak-Deborah Halmon;Deborah Halmon;John Greg;David Laychak;Deborah Halmon;119
+David Laychak;118;John Greg-David Laychak-Judy Rowlett;Judy Rowlett;John Greg;David Laychak;Judy Rowlett;139
+Dennis Johnson;121;Brenda Gibson-Dennis Johnson-Angelen Carter;Angelen Carter;Brenda Gibson;Dennis Johnson;Angelen Carter;107
+Dennis Johnson;121;Brenda Gibson-Dennis Johnson-Dennis Fisher;Dennis Fisher;Brenda Gibson;Dennis Johnson;Dennis Fisher;120
+Dennis Johnson;121;Brenda Gibson-Dennis Johnson-Judy Thurman;Judy Thurman;Brenda Gibson;Dennis Johnson;Judy Thurman;141
+John Davis;132;Stewart Wind-John Davis-Bima Malek;Bima Malek;Stewart Wind;John Davis;Bima Malek;158
+John Davis;132;Stewart Wind-John Davis-Karen Clinton;Karen Clinton;Stewart Wind;John Davis;Karen Clinton;142
+John Davis;132;Stewart Wind-John Davis-TAGnology;TAGnology;Stewart Wind;John Davis;TAGnology;180
+John Greg;134;John Greg-David Laychak;David Laychak;John Greg;David Laychak;;118
+John Greg;134;John Greg-Kathy Clinton;Kathy Clinton;John Greg;Kathy Clinton;;144
+John Greg;134;John Greg-Sandra Barone;Sandra Barone;John Greg;Sandra Barone;;170
+John Greg;134;John Greg-Viginia Mountain;Viginia Mountain;John Greg;Viginia Mountain;;184
+Kathy Clinton;144;John Greg-Kathy Clinton-Cheryle Sincock;Cheryle Sincock;John Greg;Kathy Clinton;Cheryle Sincock;114
+Kathy Clinton;144;John Greg-Kathy Clinton-Janice Scott;Janice Scott;John Greg;Kathy Clinton;Janice Scott;130
+Kathy Clinton;144;John Greg-Kathy Clinton-Lisa Taylor;Lisa Taylor;John Greg;Kathy Clinton;Lisa Taylor;150
+Kathy Clinton;144;John Greg-Kathy Clinton-Ruth Sakas;Ruth Sakas;John Greg;Kathy Clinton;Ruth Sakas;168
+Ken Roberts;145;Brenda Gibson-Ken Roberts-Craig Amundson;Craig Amundson;Brenda Gibson;Ken Roberts;Craig Amundson;115
+Ken Roberts;145;Brenda Gibson-Ken Roberts-Jimmie Holley;Jimmie Holley;Brenda Gibson;Ken Roberts;Jimmie Holley;131
+Ken Roberts;145;Brenda Gibson-Ken Roberts-Marian White;Marian White;Brenda Gibson;Ken Roberts;Marian White;151
+Micheal Williams;157;Stewart Wind-Micheal Williams-Craig Lary;Craig Lary;Stewart Wind;Micheal Williams;Craig Lary;116
+Micheal Williams;157;Stewart Wind-Micheal Williams-Martha Richard;Martha Richard;Stewart Wind;Micheal Williams;Martha Richard;153
+Micheal Williams;157;Stewart Wind-Micheal Williams-Sandra Howard;Sandra Howard;Stewart Wind;Micheal Williams;Sandra Howard;172
+Molly McKenzie;159;Amanda Honda-Molly McKenzie-David Howard;David Howard;Amanda Honda;Molly McKenzie;David Howard;117
+Molly McKenzie;159;Amanda Honda-Molly McKenzie-Max Blagburn;Max Blagburn;Amanda Honda;Molly McKenzie;Max Blagburn;154
+Molly McKenzie;159;Amanda Honda-Molly McKenzie-Scott Powell;Scott Powell;Amanda Honda;Molly McKenzie;Scott Powell;173
+Odessa Morris;160;Samantha Allen-Odessa Morris-Jose Bowen;Jose Bowen;Samantha Allen;Odessa Morris;Jose Bowen;136
+Odessa Morris;160;Samantha Allen-Odessa Morris-Michael Stephens;Michael Stephens;Samantha Allen;Odessa Morris;Michael Stephens;155
+Odessa Morris;160;Samantha Allen-Odessa Morris-Sharon Carver;Sharon Carver;Samantha Allen;Odessa Morris;Sharon Carver;175
+Samantha Allen;169;Samantha Allen-Brad Taylor;Brad Taylor;Samantha Allen;Brad Taylor;;108
+Samantha Allen;169;Samantha Allen-Karl Anderson;Karl Anderson;Samantha Allen;Karl Anderson;;143
+Samantha Allen;169;Samantha Allen-Odessa Morris;Odessa Morris;Samantha Allen;Odessa Morris;;160
+Samantha Allen;169;Samantha Allen-Stephanie Reagan;Stephanie Reagan;Samantha Allen;Stephanie Reagan;;179
+Sheila Hein;176;Amanda Honda-Sheila Hein-Don Simmons;Don Simmons;Amanda Honda;Sheila Hein;Don Simmons;124
+Sheila Hein;176;Amanda Honda-Sheila Hein-Patricia Taylor;Patricia Taylor;Amanda Honda;Sheila Hein;Patricia Taylor;161
+Sheila Hein;176;Amanda Honda-Sheila Hein-Ted Moy;Ted Moy;Amanda Honda;Sheila Hein;Ted Moy;182
+Stephanie Reagan;179;Samantha Allen-Stephanie Reagan-Brenda Kegler;Brenda Kegler;Samantha Allen;Stephanie Reagan;Brenda Kegler;110
+Stephanie Reagan;179;Samantha Allen-Stephanie Reagan-Donna Brown;Donna Brown;Samantha Allen;Stephanie Reagan;Donna Brown;125
+Stephanie Reagan;179;Samantha Allen-Stephanie Reagan-Peggie Hurt;Peggie Hurt;Samantha Allen;Stephanie Reagan;Peggie Hurt;162
+Stephanie Reagan;179;Samantha Allen-Stephanie Reagan-Teresa Lynch;Teresa Lynch;Samantha Allen;Stephanie Reagan;Teresa Lynch;183
+Stewart Wind;181;Stewart Wind-Carolyn Halmon;Carolyn Halmon;Stewart Wind;Carolyn Halmon;;111
+Stewart Wind;181;Stewart Wind-John Davis;John Davis;Stewart Wind;John Davis;;132
+Stewart Wind;181;Stewart Wind-Micheal Williams;Micheal Williams;Stewart Wind;Micheal Williams;;157
+Stewart Wind;181;Stewart Wind-Ronald Golinski;Ronald Golinski;Stewart Wind;Ronald Golinski;;166
+Viginia Mountain;184;John Greg-Viginia Mountain-Edward Laychak;Edward Laychak;John Greg;Viginia Mountain;Edward Laychak;127
+William Fisher;185;Brenda Gibson-William Fisher-Edward Smith;Edward Smith;Brenda Gibson;William Fisher;Edward Smith;129
+William Fisher;185;Brenda Gibson-William Fisher-Kim Williams;Kim Williams;Brenda Gibson;William Fisher;Kim Williams;147
+Amanda Honda;104;Amanda Honda;Amanda Honda;Amanda Honda;;;104
+Brenda Gibson;109;Brenda Gibson;Brenda Gibson;Brenda Gibson;;;109
+John Greg;134;John Greg;John Greg;John Greg;;;134
+Samantha Allen;169;Samantha Allen;Samantha Allen;Samantha Allen;;;169
+Stewart Wind;181;Stewart Wind;Stewart Wind;Stewart Wind;;;181

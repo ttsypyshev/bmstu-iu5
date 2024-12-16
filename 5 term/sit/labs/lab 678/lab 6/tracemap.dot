@@ -1,0 +1,17 @@
+graph G {
+    margin =1 ;
+    node [fontname=times,fontsize=7,shape=circle,width=0.1,height=0.1,fixedsize=true,color=blue];
+    edge [fontname=times,fontsize=5,color=black];
+hop1 [fontsize=10,color=red,style=filled,label="(YOU)",;hop2 [ label="10.241.254.18",color=indigo];hop1 -- hop2 [label="34.87",len=2.38558522156394];
+hop3 [ label="10.241.254.30",color=indigo];hop2 -- hop3 [label="51.64",len=2.54037223959558];
+hop4 [ label="10.241.255.47",color=indigo];hop3 -- hop4 [label="-15.05",len=0.439022762846539];
+hop5 [ label="10.241.255.38",color=indigo,shaper=rectangle];hop4 -- hop5 [label="15.02",len=2.05366984238207];
+hop6 [ label="10.241.17.254",color=indigo];hop5 -- hop6 [label="-5.04",len=0.439022762846539];
+hop7 [ label="172.25.243.32",color=indigo];hop6 -- hop7 [label="-5.46",len=0.439022762846539];
+hop8 [ label="172.25.129.175",color=indigo];hop7 -- hop8 [label="-1.43",len=0.439022762846539];
+hop9 [ label="185.211.156.250",color=indigo];hop8 -- hop9 [label="1.44",len=1.12951597036825];
+hop10 [ label="62.89.200.24",color=indigo];hop9 -- hop10 [label="0.00",len=0.439022762846539];
+hop11 [ label="10.3.8.1",color=skyblue2];hop10 -- hop11 [label="0.05",len=0.439022762846539];
+hop12 [fontsize=8,style=filled,label="www.yandex.ru",color=indigo];hop11 -- hop12 [label="-1.75",len=0.439022762846539];
+
+}

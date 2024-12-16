@@ -7,7 +7,7 @@ library("ggplot2")
 View(mtcars)
 plot(mtcars$hp, mtcars$cyl)
 
-# Использовать функцию ggplot                 
+# Использовать функцию ggplot
 ggplot(mtcars, aes(x=hp, y=cyl)) + geom_point()
 ###############################################
 

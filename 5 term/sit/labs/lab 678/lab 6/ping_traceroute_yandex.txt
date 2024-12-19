@@ -1,0 +1,12 @@
+PING www.yandex.ru (5.255.255.77) 56(84) bytes of data.
+From _gateway (192.168.43.108) icmp_seq=1 Time to live exceeded
+From _gateway (192.168.43.108) icmp_seq=2 Time to live exceeded
+From _gateway (192.168.43.108) icmp_seq=3 Time to live exceeded
+From _gateway (192.168.43.108) icmp_seq=4 Time to live exceeded
+From _gateway (192.168.43.108) icmp_seq=5 Time to live exceeded
+From _gateway (192.168.43.108) icmp_seq=6 Time to live exceeded
+From _gateway (192.168.43.108) icmp_seq=7 Time to live exceeded
+From _gateway (192.168.43.108) icmp_seq=8 Time to live exceeded
+From _gateway (192.168.43.108) icmp_seq=9 Time to live exceeded
+From _gateway (192.168.43.108) icmp_seq=10 Time to live exceeded
+From _gateway (192.168.43.108) icmp_seq=11 Time to live exceeded

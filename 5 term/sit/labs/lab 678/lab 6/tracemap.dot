@@ -2,16 +2,27 @@ graph G {
     margin =1 ;
     node [fontname=times,fontsize=7,shape=circle,width=0.1,height=0.1,fixedsize=true,color=blue];
     edge [fontname=times,fontsize=5,color=black];
-hop1 [fontsize=10,color=red,style=filled,label="(YOU)",;hop2 [ label="10.241.254.18",color=indigo];hop1 -- hop2 [label="34.87",len=2.38558522156394];
-hop3 [ label="10.241.254.30",color=indigo];hop2 -- hop3 [label="51.64",len=2.54037223959558];
-hop4 [ label="10.241.255.47",color=indigo];hop3 -- hop4 [label="-15.05",len=0.439022762846539];
-hop5 [ label="10.241.255.38",color=indigo,shaper=rectangle];hop4 -- hop5 [label="15.02",len=2.05366984238207];
-hop6 [ label="10.241.17.254",color=indigo];hop5 -- hop6 [label="-5.04",len=0.439022762846539];
-hop7 [ label="172.25.243.32",color=indigo];hop6 -- hop7 [label="-5.46",len=0.439022762846539];
-hop8 [ label="172.25.129.175",color=indigo];hop7 -- hop8 [label="-1.43",len=0.439022762846539];
-hop9 [ label="185.211.156.250",color=indigo];hop8 -- hop9 [label="1.44",len=1.12951597036825];
-hop10 [ label="62.89.200.24",color=indigo];hop9 -- hop10 [label="0.00",len=0.439022762846539];
-hop11 [ label="10.3.8.1",color=skyblue2];hop10 -- hop11 [label="0.05",len=0.439022762846539];
-hop12 [fontsize=8,style=filled,label="www.yandex.ru",color=indigo];hop11 -- hop12 [label="-1.75",len=0.439022762846539];
+hop1 [fontsize=10,style=filled,label="(YOU)"];hop2 [ label="10.242.254.20"];hop1 -- hop2 [label="773.95",len=3.60752467596514];
+hop3 [ label="10.242.254.30",color=indigo];hop2 -- hop3 [label="-15.90",len=0.439022762846539];
+hop4 [ label="10.242.255.33",color=indigo];hop3 -- hop4 [label="11.18",len=1.9371133926092];
+hop5 [ label="10.242.16.254",color=indigo,shaper=rectangle];hop4 -- hop5 [label="-11.20",len=0.439022762846539];
+hop6 [ label="172.25.244.32",color=indigo];hop5 -- hop6 [label="15.88",len=2.07538752446579];
+hop7 [ label="172.25.129.145",color=indigo];hop6 -- hop7 [label="-4.71",len=0.439022762846539];
+hop8 [ label="185.211.156.250",color=indigo];hop7 -- hop8 [label="0.10",len=0.439022762846539];
+hop9 [ label="62.89.200.24",color=indigo];hop8 -- hop9 [label="-0.11",len=0.439022762846539];
+hop10 [ label="10.8.4.1",color=steelblue1];hop9 -- hop10 [label="4.63",len=1.58954876781977];
+hop11 [fontsize=8,style=filled,label="www.yandex.ru",color=indigo];hop10 -- hop11 [label="0.06",len=0.439022762846539];
+hop12 [ label="10.242.255.35",color=indigo];hop3 -- hop12 [label="9.45",len=1.87100413409893];
+hop13 [ label="10.242.255.24",color=indigo,shaper=rectangle];hop12 -- hop13 [label="-6.07",len=0.439022762846539];
+hop14 [ label="172.25.247.32",color=indigo];hop5 -- hop14 [label="-1.98",len=0.439022762846539];
+hop15 [ label="172.25.129.163",color=indigo];hop14 -- hop15 [label="-0.01",len=0.439022762846539];
+hop16 [ label="195.208.210.24",color=indigo];hop15 -- hop16 [label="-0.02",len=0.439022762846539];
+hop17 [ label="10.200.16.194",color=indigo];hop16 -- hop17 [label="0.10",len=0.439022762846539];
+hop18 [ label="10.200.16.15",color=indigo];hop17 -- hop18 [label="0.05",len=0.439022762846539];
+hop19 [fontsize=8,style=filled,label="www.gismeteo.ru",color=indigo];hop18 -- hop19 [label="1.85",len=1.22864490442693];
+hop20 [ label="85.112.122.11",color=indigo];hop15 -- hop20 [label="-51.56",len=0.439022762846539];
+hop21 [ label="87.245.228.206",color=indigo];hop20 -- hop21 [label="51.82",len=2.54171336823781];
+hop22 [ label="87.245.233.221",color=indigo];hop21 -- hop22 [label="0.65",len=0.813861778317491];
+hop23 [fontsize=8,style=filled,label="www.uefa.com",color=indigo];hop22 -- hop23 [label="-0.96",len=0.439022762846539];
 
 }

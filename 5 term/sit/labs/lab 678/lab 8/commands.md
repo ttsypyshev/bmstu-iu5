@@ -1,4 +1,4 @@
-### **3.4.1 Разрешение адресов с использованием `host`, `nslookup`, `dig`**
+### 1 Разрешение адресов с использованием `host`, `nslookup`, `dig`**
 
 1. **Запуск Wireshark**:
    - Откройте Wireshark.
@@ -15,7 +15,7 @@
 
 ---
 
-### **3.4.2 Получение ресурсных записей разных типов с `nslookup`**
+### 2 Получение ресурсных записей разных типов с `nslookup`**
 
 1. **Запуск Wireshark**:
    - Установите фильтр: `dns`.
@@ -94,19 +94,8 @@
     ```
 
 ---
-nslookup -query=A astralinux.ru
-nslookup -query=AAAA astralinux.ru
-nslookup -query=MX astralinux.ru
-nslookup -query=CNAME astralinux.ru
-nslookup -query=PTR 192.0.2.1
-nslookup -query=NS astralinux.ru
-nslookup -query=NS astralinux.ru
-nslookup -query=SOA astralinux.ru
-nslookup -query=TXT astralinux.ru
-nslookup -query=SRV _sip._tcp.astralinux.ru
-nslookup -query=ANY astralinux.ru
 
-### **3.4.3 Обратный запрос DNS с `host`**
+### 3 Обратный запрос DNS с `host`**
 
 1. **Запуск Wireshark**:
    - Установите фильтр: `dns`.
@@ -126,7 +115,7 @@ nslookup -query=ANY astralinux.ru
 
 ---
 
-### **3.4.4 Получение всех ресурсных записей для домена с `host`**
+### 4 Получение всех ресурсных записей для домена с `host`**
 
 1. **Запуск Wireshark**:
    - Установите фильтр: IP-адреса ПК, сервера DNS, протоколы (TCP/UDP).

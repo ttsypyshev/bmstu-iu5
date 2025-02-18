@@ -1,0 +1,1 @@
+5[[:space:]]term/operational[[:space:]]data[[:space:]]analysis/lab[[:space:]]6/Питон[[:space:]]2-4/train.csv filter=lfs diff=lfs merge=lfs -text

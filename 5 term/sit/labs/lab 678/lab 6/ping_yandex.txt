@@ -1,0 +1,9 @@
+PING www.yandex.ru (5.255.255.77) 56(84) bytes of data.
+64 bytes from yandex.ru (5.255.255.77): icmp_seq=1 ttl=243 time=43.9 ms
+64 bytes from yandex.ru (5.255.255.77): icmp_seq=2 ttl=243 time=59.5 ms
+64 bytes from yandex.ru (5.255.255.77): icmp_seq=3 ttl=243 time=250 ms
+64 bytes from yandex.ru (5.255.255.77): icmp_seq=4 ttl=243 time=60.6 ms
+
+--- www.yandex.ru ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 43.863/103.524/250.134/84.903 ms

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Viewer</title>
+  <style>
+    /* Сбрасываем отступы */
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    /* Контейнер под Canvas */
+    #canvas-container {
+      width: 100%;
+      height: 100%;
+      background-color: #fff; /* Тёмный фон для контраста */
+    }
+    /* Сам Canvas растягивается на весь контейнер */
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas-container">
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <!-- Подключение Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Загрузчик glTF (GLTFLoader) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+
+  <!-- OrbitControls для управления камерой (вращение/зум) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
+
+  <!-- Наш код -->
+  <script src="script.js"></script>
+</body>
+</html>

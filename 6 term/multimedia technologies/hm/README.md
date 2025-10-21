@@ -1,1 +1,3 @@
-[Репозиторий с дз](https://github.com/ttsypyshev/face-mask-detector)
+## Репозиторий
+
+🔗 [Репозиторий с домашним заданием](https://github.com/ttsypyshev/face-mask-detector)

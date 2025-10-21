@@ -1,0 +1,896 @@
+{
+	"info": {
+		"_postman_id": "99bee5df-e9a1-46b0-a742-20c5aff7a772",
+		"name": "rip",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39492301"
+	},
+	"item": [
+		{
+			"name": "lang",
+			"item": [
+				{
+					"name": "GetServiceList",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>ID</th>",
+									"        <th>Name</th>",
+									"        <th>ShortDescription</th>",
+									"        <th>Description</th>",
+									"        <th>ImgLink</th>",
+									"        <th>Author</th>",
+									"        <th>Year</th>",
+									"        <th>Version</th>",
+									"        <th>List</th>",
+									"        <th>Status</th>",
+									"    </tr>",
+									"    ",
+									"    {{#each response.langs}}",
+									"        <tr>",
+									"            <td>{{ID}}</td>",
+									"            <td>{{Name}}</td>",
+									"            <td>{{ShortDescription}}</td>",
+									"            <td>{{Description}}</td>",
+									"            <td>{{ImgLink}}</td>",
+									"            <td>{{Author}}</td>",
+									"            <td>{{Year}}</td>",
+									"            <td>{{Version}}</td>",
+									"            <td>{{List}}</td>",
+									"            <td>{{Status}}</td>",
+									"        </tr>",
+									"    {{/each}}",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return {response: pm.response.json()}",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/info?langname=python",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"info"
+							],
+							"query": [
+								{
+									"key": "langname",
+									"value": "python"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetServiceList",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/info?langname",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"info"
+									],
+									"query": [
+										{
+											"key": "langname",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 11:35:26 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 0,\n    \"draftID\": 4,\n    \"langs\": [\n        {\n            \"ID\": 1,\n            \"Name\": \"Python\",\n            \"ShortDescription\": \"Объединяет простоту и мощь\",\n            \"Description\": \"— это высокоуровневый язык программирования общего назначения, который широко используется благодаря своей гибкости, простоте и мощным возможностям расширения. Вот основные технические характеристики Python:\",\n            \"ImgLink\": \"http://localhost:9000/code-inspector/python.png\",\n            \"Author\": \"Гвидо ван Россум\",\n            \"Year\": \"1991\",\n            \"Version\": \"Python 3.12.6 (Sep 12, 2024)\",\n            \"List\": {\n                \"Исполняемость\": \"Python интерпретируемый язык. Код выполняется интерпретатором, который читает и исполняет команды строка за строкой.\",\n                \"Модульность и библиотеки\": \"Python поддерживает создание модулей и пакетов, а также имеет обширную стандартную библиотеку с множеством функциональных возможностей.\",\n                \"Мультисистемность\": \"Python доступен для большинства операционных систем, включая Windows, macOS и Linux.\",\n                \"Объектно-Ориентированное Программирование (ООП)\": \"Python поддерживает ООП, позволяя создавать классы и объекты.\",\n                \"Пакетный менеджер\": \"Python использует pip в качестве стандартного инструмента для установки и управления пакетами и библиотеками.\",\n                \"Производительность\": \"Python может быть медленнее по сравнению с компилируемыми языками, но его производительность можно улучшить с помощью различных оптимизаций, таких как Cython и PyPy.\",\n                \"Синтаксис\": \"Python имеет простой и читаемый синтаксис, что делает его удобным для новичков. Отступы используются для обозначения блоков кода.\",\n                \"Типизация\": \"Python является динамически типизированным языком, что означает, что типы переменных проверяются во время выполнения программы.\"\n            },\n            \"Status\": true\n        },\n        {\n            \"ID\": 2,\n            \"Name\": \"C++\",\n            \"ShortDescription\": \"Контроль и производительность в одном лице\",\n            \"Description\": \"— это мощный и высокопроизводительный язык программирования, известный своей способностью обеспечивать низкоуровневый доступ к памяти и поддерживать сложные структуры данных. Вот основные технические характеристики C++:\",\n            \"ImgLink\": \"http://localhost:9000/code-inspector/cpp.png\",\n            \"Author\": \"Бьёрн Страуструп\",\n            \"Year\": \"1985\",\n            \"Version\": \"C++20 (Dec 2020)\",\n            \"List\": {\n                \"Мультисистемность\": \"C++ доступен для множества операционных систем и платформ, что позволяет создавать кроссплатформенные приложения.\",\n                \"Объектно-Ориентированное Программирование (ООП)\": \"C++ позволяет создавать и использовать классы и объекты, поддерживает наследование, полиморфизм и инкапсуляцию.\",\n                \"Проектирование и сборка\": \"C++ проектирование и сборка поддерживаются различными системами сборки и управления зависимостями, такими как CMake и Make.\",\n                \"Производительность\": \"C++ обеспечивает высокую производительность за счет компиляции в машинный код и эффективного управления ресурсами.\",\n                \"Синтаксис\": \"C++ поддерживает широкий спектр программных конструкций, включая функции, классы, шаблоны и перегрузку операторов, что делает его подходящим для различных типов программирования.\",\n                \"Стандартная библиотека\": \"C++ включает стандартную библиотеку, которая предоставляет функции и классы для работы с коллекциями, вводом/выводом, и алгоритмами.\",\n                \"Управление памятью\": \"C++ позволяет явное управление памятью с помощью указателей и динамического выделения, что требует от программиста внимательного контроля ресурсов.\",\n                \"Шаблоны\": \"C++ поддерживает шаблоны для создания обобщенного кода, который может работать с различными типами данных.\"\n            },\n            \"Status\": true\n        },\n        {\n            \"ID\": 3,\n            \"Name\": \"GO\",\n            \"ShortDescription\": \"Эффективный для масштабируемых решений\",\n            \"Description\": \"— это язык программирования, разработанный Google с акцентом на простоту, производительность и эффективное параллельное выполнение. Вот основные технические характеристики Go:\",\n            \"ImgLink\": \"http://localhost:9000/code-inspector/golang.png\",\n            \"Author\": \"Роберт Гризмер, Роб Пайк\",\n            \"Year\": \"2009\",\n            \"Version\": \"Go 1.21.0 (Aug 2023)\",\n            \"List\": {\n                \"Исполняемость\": \"Go компилируемый язык. Код Go компилируется в машинный код, что обеспечивает высокую производительность выполнения программ.\",\n                \"Модульность и библиотеки\": \"Go имеет встроенную поддержку для работы с пакетами и модулями, а также поставляется с обширной стандартной библиотекой.\",\n                \"Мультисистемность\": \"Go поддерживает кроссплатформенность и доступен для большинства операционных систем, включая Windows, macOS и Linux.\",\n                \"Пакетный менеджер\": \"Go использует собственный инструмент go для управления пакетами и зависимостями, который упрощает процесс сборки и установки.\",\n                \"Параллелизм\": \"Go предоставляет встроенную поддержку для параллельного выполнения через горутины и каналы, что упрощает разработку многопоточных приложений.\",\n                \"Производительность\": \"Go обеспечивает высокую производительность благодаря компиляции в машинный код и оптимизированному управлению памятью, что делает его эффективным для сетевых и серверных приложений.\",\n                \"Синтаксис\": \"Go имеет простой и лаконичный синтаксис, который делает его легким для изучения и использования. Отступы используются для форматирования кода, что способствует чистоте и читаемости кода.\",\n                \"Типизация\": \"Go является статически типизированным языком, что означает проверку типов переменных на этапе компиляции.\"\n            },\n            \"Status\": true\n        },\n        {\n            \"ID\": 4,\n            \"Name\": \"HTML\",\n            \"ShortDescription\": \"Основа структуры и содержания веб-страниц\",\n            \"Description\": \"— это стандартный язык разметки, используемый для создания и структурирования веб-страниц. Вот основные технические характеристики HTML:\",\n            \"ImgLink\": \"http://localhost:9000/code-inspector/html.png\",\n            \"Author\": \"Тим Бернерс-Ли\",\n            \"Year\": \"1993\",\n            \"Version\": \"HTML5 (Oct 2014)\",\n            \"List\": {\n                \"Исполняемость\": \"HTML не является исполняемым языком программирования; вместо этого он интерпретируется веб-браузерами, которые отображают содержимое страницы согласно разметке.\",\n                \"Модульность и расширения\": \"HTML можно расширять с помощью CSS (Cascading Style Sheets) для стилизации и JavaScript для интерактивности и динамического поведения.\",\n                \"Мультисистемность\": \"HTML является стандартом для веб-разработки и поддерживается всеми современными веб-браузерами, независимо от операционной системы.\",\n                \"Пакетный менеджер\": \"HTML сам по себе не имеет пакетного менеджера, но может быть использован вместе с инструментами и фреймворками для упрощения веб-разработки, такими как npm (Node Package Manager) для JavaScript-библиотек.\",\n                \"Производительность\": \"Поскольку HTML представляет собой статический язык разметки, его производительность в основном зависит от браузера и качества кода, используемого для поддержки стилей и сценариев.\",\n                \"Разметка\": \"HTML использует теги для определения структуры и содержания веб-страниц. Теги обозначают различные элементы, такие как заголовки, параграфы, ссылки и изображения.\",\n                \"Синтаксис\": \"HTML имеет простой и гибкий синтаксис, который легко читается и пишется. Теги обычно имеют открывающую и закрывающую форму, например <p> и </p> для параграфов.\",\n                \"Структура\": \"HTML обеспечивает основу для веб-страниц, включая такие элементы, как заголовок, тело и разделение на секции. Он также поддерживает вложенность элементов для создания сложных структур.\"\n            },\n            \"Status\": true\n        },\n        {\n            \"ID\": 5,\n            \"Name\": \"CSS\",\n            \"ShortDescription\": \"Создает оформление веб-интерфейсов\",\n            \"Description\": \"— это язык стилей, используемый для управления внешним видом и форматированием веб-страниц, созданных на HTML. Вот основные технические характеристики CSS:\",\n            \"ImgLink\": \"http://localhost:9000/code-inspector/css.png\",\n            \"Author\": \"Грабриел Маззоне\",\n            \"Year\": \"1996\",\n            \"Version\": \"CSS3 (2011)\",\n            \"List\": {\n                \"Каскадность и наследование\": \"CSS поддерживает каскадность, что означает, что стили могут наследоваться от родительских элементов и могут переопределяться более специфичными правилами.\",\n                \"Мультисистемность\": \"CSS поддерживается всеми современными веб-браузерами и может использоваться с HTML для создания интерактивных и визуально привлекательных веб-страниц.\",\n                \"Производительность\": \"Поскольку CSS управляет визуальными элементами на веб-странице, его производительность в основном зависит от браузера и качества кода, который используется для стилизации.\",\n                \"Расширяемость\": \"CSS может быть расширен с помощью препроцессоров, таких как SASS и LESS, которые добавляют дополнительные возможности и упрощают организацию стилей.\",\n                \"Респонсивный дизайн\": \"CSS предоставляет возможности для создания адаптивных веб-дизайнов, используя медиа-запросы и флексбоксы для управления расположением элементов на экране в зависимости от размера устройства.\",\n                \"Синтаксис\": \"CSS имеет простой синтаксис, состоящий из селекторов и деклараций. Селекторы указывают элементы, к которым применяются стили, а декларации определяют свойства и их значения.\",\n                \"Стилевое оформление\": \"CSS применяется для стилизации HTML-элементов, позволяя задавать цвета, шрифты, отступы, размеры и другие визуальные свойства.\"\n            },\n            \"Status\": true\n        },\n        {\n            \"ID\": 7,\n            \"Name\": \"test\",\n            \"ShortDescription\": \"test\",\n            \"Description\": \"test\",\n            \"ImgLink\": \"\",\n            \"Author\": \"test\",\n            \"Year\": \"test\",\n            \"Version\": \"test\",\n            \"List\": {\n                \"test1\": \"1\",\n                \"test2\": \"2\",\n                \"test3\": \"3\",\n                \"test4\": \"4\",\n                \"test5\": \"5\",\n                \"test6\": \"6\"\n            },\n            \"Status\": true\n        },\n        {\n            \"ID\": 8,\n            \"Name\": \"tes1t\",\n            \"ShortDescription\": \"test\",\n            \"Description\": \"test\",\n            \"ImgLink\": \"\",\n            \"Author\": \"test\",\n            \"Year\": \"test\",\n            \"Version\": \"test\",\n            \"List\": {\n                \"test1\": \"1\",\n                \"test2\": \"2\",\n                \"test3\": \"3\",\n                \"test4\": \"4\",\n                \"test5\": \"5\",\n                \"test6\": \"6\"\n            },\n            \"Status\": true\n        }\n    ]\n}"
+						},
+						{
+							"name": "GetServiceList",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/info?langname=python",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"info"
+									],
+									"query": [
+										{
+											"key": "langname",
+											"value": "python"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 11:36:53 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 0,\n    \"draftID\": 4,\n    \"langs\": [\n        {\n            \"ID\": 1,\n            \"Name\": \"Python\",\n            \"ShortDescription\": \"Объединяет простоту и мощь\",\n            \"Description\": \"— это высокоуровневый язык программирования общего назначения, который широко используется благодаря своей гибкости, простоте и мощным возможностям расширения. Вот основные технические характеристики Python:\",\n            \"ImgLink\": \"http://localhost:9000/code-inspector/python.png\",\n            \"Author\": \"Гвидо ван Россум\",\n            \"Year\": \"1991\",\n            \"Version\": \"Python 3.12.6 (Sep 12, 2024)\",\n            \"List\": {\n                \"Исполняемость\": \"Python интерпретируемый язык. Код выполняется интерпретатором, который читает и исполняет команды строка за строкой.\",\n                \"Модульность и библиотеки\": \"Python поддерживает создание модулей и пакетов, а также имеет обширную стандартную библиотеку с множеством функциональных возможностей.\",\n                \"Мультисистемность\": \"Python доступен для большинства операционных систем, включая Windows, macOS и Linux.\",\n                \"Объектно-Ориентированное Программирование (ООП)\": \"Python поддерживает ООП, позволяя создавать классы и объекты.\",\n                \"Пакетный менеджер\": \"Python использует pip в качестве стандартного инструмента для установки и управления пакетами и библиотеками.\",\n                \"Производительность\": \"Python может быть медленнее по сравнению с компилируемыми языками, но его производительность можно улучшить с помощью различных оптимизаций, таких как Cython и PyPy.\",\n                \"Синтаксис\": \"Python имеет простой и читаемый синтаксис, что делает его удобным для новичков. Отступы используются для обозначения блоков кода.\",\n                \"Типизация\": \"Python является динамически типизированным языком, что означает, что типы переменных проверяются во время выполнения программы.\"\n            },\n            \"Status\": true\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "GetServiceByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/info/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"info",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateService",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzIxNjE0MjcsInJvbGUiOiJhZG1pbiIsInVzZXJfaWQiOiJiNTE2NTAzNS1iZWU3LTRkZTEtODQ1Ny01ODllMjIxZTljMmUifQ.5RTOaCyBcJ4N2xRth64UMC-HIkNQYQJwYiFTS8GvW3U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"test\",\n  \"short_description\": \"test\",\n  \"description\": \"test\",\n  \"author\": \"test\",\n  \"year\": \"test\",\n  \"version\": \"test\",\n  \"list\": {\n    \"test1\": \"1\",\n    \"test2\": \"2\",\n    \"test3\": \"3\",\n    \"test4\": \"4\",\n    \"test5\": \"5\",\n    \"test6\": \"6\"\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateService",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzIxNjE0ODAsInJvbGUiOiJhZG1pbiIsInVzZXJfaWQiOiJiNTE2NTAzNS1iZWU3LTRkZTEtODQ1Ny01ODllMjIxZTljMmUifQ.I447AlQmq3dtnTXhHjNh_AF46XtZ3_67EbgdVexz12U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"test1\",\n  \"short_description\": \"test1\",\n  \"description\": \"test1\",\n  \"author\": \"test1\",\n  \"year\": \"test\",\n  \"version\": \"test1\",\n  \"list\": {\n    \"test1\": \"11\",\n    \"test2\": \"21\",\n    \"test3\": \"31\",\n    \"test4\": \"41\",\n    \"test5\": \"51\",\n    \"test6\": \"61\"\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/info/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"info",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateServiceImage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzIxNjE0ODAsInJvbGUiOiJhZG1pbiIsInVzZXJfaWQiOiJiNTE2NTAzNS1iZWU3LTRkZTEtODQ1Ny01ODllMjIxZTljMmUifQ.I447AlQmq3dtnTXhHjNh_AF46XtZ3_67EbgdVexz12U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/ttsypyshev/data/other/forest_illustration-wallpaper-3440x1440.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/info/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"info",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteService",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzIxNjE0ODAsInJvbGUiOiJhZG1pbiIsInVzZXJfaWQiOiJiNTE2NTAzNS1iZWU3LTRkZTEtODQ1Ny01ODllMjIxZTljMmUifQ.I447AlQmq3dtnTXhHjNh_AF46XtZ3_67EbgdVexz12U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/info/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"info",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddServiceToDraft",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id_lang\":1}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/info/add-service",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"info",
+								"add-service"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "project",
+			"item": [
+				{
+					"name": "GetProjectList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/project",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"project"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-01-01",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "2024-12-31",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "rejected",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProjectByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/project/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"project",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProject",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\":\"draft\",\n    \"comment\":\"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/project/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"project",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SubmitProject",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"file_codes\": {\n    \"6\": \"file_code_1\",\n    \"7\": \"file_code_2\",\n    \"8\": \"file_code_3\"\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/project/4/submit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"project",
+								"4",
+								"submit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CompleteProject",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzIxNjE0ODAsInJvbGUiOiJhZG1pbiIsInVzZXJfaWQiOiJiNTE2NTAzNS1iZWU3LTRkZTEtODQ1Ny01ODllMjIxZTljMmUifQ.I447AlQmq3dtnTXhHjNh_AF46XtZ3_67EbgdVexz12U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"completed\",\n  \"comment\": \"Project completed successfully.\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/project/4/complete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"project",
+								"4",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProject",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"file_codes\": {\n    \"3\": \"file_code_11\",\n    \"4\": \"file_code_21\",\n    \"5\": \"file_code_31\"\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/project/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"project",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "file",
+			"item": [
+				{
+					"name": "DeleteFileFromProject",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 4,\n  \"lang_id\": 2\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/file/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"file",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateFileInProject",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 4,\n  \"lang_id\": 1,\n  \"code\": \"example_code\",\n  \"filename\": \"1\",\n  \"comment\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/file/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"file",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "RegisterUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Doe1\",\n  \"email\": \"test@test.com\",\n  \"login\": \"johndoe1\",\n  \"password\": \"securepassword123\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUserProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzIxNjIxMzYsInJvbGUiOiJzdHVkZW50IiwidXNlcl9pZCI6IjYzYzc5MjU5LTYzMjEtNDEwZS05NGMyLWM3NjI4ZDE3MDkxMCJ9.XxFgd8noYjE6wQg5WpVQzNalySPEbO776tPnPSgLaLo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Jane Doe 1\",\n  \"email\": \"test@test.com\",\n  \"password\": \"newsecurepassword456\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserLogin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\n//   \"login\": \"admin1\",\n//   \"password\": \"password123\"\n// }\n\n{\n  \"login\": \"user1\",\n  \"password\": \"userPass123\"\n}\n\n// {\n//   \"login\": \"johndoe1\",\n//   \"password\": \"securepassword123\"\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "AdminLogin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"login\": \"admin1\",\n  \"password\": \"password123\"\n}\n\n// {\n//   \"login\": \"user1\",\n//   \"password\": \"userPass123\"\n// }\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/user/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 11:38:06 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User has successfully logged in\",\n    \"status\": true\n}"
+						},
+						{
+							"name": "UserLogin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// {\n//   \"login\": \"admin1\",\n//   \"password\": \"password123\"\n// }\n\n{\n  \"login\": \"user1\",\n  \"password\": \"userPass123\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/user/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 11:40:03 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User has successfully logged in\",\n    \"status\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "UserLogout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzIxMjAxMjQsInJvbGUiOiJzdHVkZW50IiwidXNlcl9pZCI6ImZhNzk3MjU4LWJmZjItNGY2Ny04NjI3LTE3MzZiYThkMTI2NCJ9.FDbnTcWrmuYvEc8wg1AxblVMZ_gaXnu2nTIIJC_ML9A",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzIxNjM4MDEsInJvbGUiOiJzdHVkZW50IiwidXNlcl9pZCI6IjVlMjc5ZWQxLTAxNmUtNDI5OC05YWVkLTg5OTlkNDFhNTUyMSJ9.SE59BYkp60CI-KmchkQ7d8Y6jJ-rtKPBnIniR_4a95Y",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

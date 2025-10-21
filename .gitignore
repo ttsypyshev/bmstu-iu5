@@ -1133,3 +1133,6 @@ FodyWeavers.xsd
 # My files/folder
 consts.js
 .vscode/
+
+# macOS system files
+.DS_Store

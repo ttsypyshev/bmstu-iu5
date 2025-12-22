@@ -1,0 +1,147 @@
+Arrow Name: Аппаратная конфигурация
+Arrow Source: Отправить конфигурационные пакеты
+Arrow Source Type: Output
+
+Arrow Name: Архив версий
+Arrow Source: Отправить конфигурационные пакеты
+Arrow Source Type: Output
+
+Arrow Name: Валидированные изменения сети
+Arrow Source: Валидировать изменения
+Arrow Source Type: Output
+
+Arrow Name: Данные для контроля
+Arrow Source: Внедрить массовые изменения конфигурации
+Arrow Source Type: Output
+
+Arrow Name: Данные о состоянии каналов
+Arrow Source: Отслеживать доступность каналов связи
+Arrow Source Type: Output
+
+Arrow Name: Данные об инцидентах
+Arrow Source: Автоматизировать реакцию на сетевые инциденты
+Arrow Source Type: Output
+
+Arrow Name: Журналы событий и статистика
+Arrow Source: Анализировать сетевую активность
+Arrow Source Type: Output
+
+Arrow Name: Запросы от администратора
+Arrow Source: { Border }
+Arrow Source Type: Input
+
+Arrow Name: Инженер
+Arrow Source: { Border }
+Arrow Source Type: Mechanism
+
+Arrow Name: Информация о состоянии сети
+Arrow Source: { Border }
+Arrow Source Type: Input
+
+Arrow Name: Конфигурационные данные
+Arrow Source: { Border }
+Arrow Source Type: Input
+
+Arrow Name: Конфигурационные пакеты
+Arrow Source: Отправить конфигурационные пакеты
+Arrow Source Type: Output
+
+Arrow Name: Маршрутизированный сетевой трафик
+Arrow Source: Автоматизировать реакцию на сетевые инциденты
+Arrow Source Type: Output
+
+Arrow Name: Метрики для отчётности
+Arrow Source: Оценивать качество соединений
+Arrow Source Type: Output
+
+Arrow Name: Начальная конфигурация
+Arrow Source: Подключить новое устройство
+Arrow Source Type: Output
+
+Arrow Name: Нормативы и SLA по надежности сети
+Arrow Source: { Border }
+Arrow Source Type: Control
+
+Arrow Name: Отчёт о состоянии сети
+Arrow Source: Обеспечивать актуальность ПО
+Arrow Source Type: Output
+
+Arrow Name: Оценка качества соединений
+Arrow Source: Оценивать качество соединений
+Arrow Source Type: Output
+
+Arrow Name: Параметры ПО
+Arrow Source: Обеспечивать актуальность ПО
+Arrow Source Type: Output
+
+Arrow Name: Правила маршрутизации QOS
+Arrow Source: { Border }
+Arrow Source Type: Control
+
+Arrow Name: Политики безопасности и доступа
+Arrow Source: { Border }
+Arrow Source Type: Control
+
+Arrow Name: Политики мониторинга и оповещения
+Arrow Source: { Border }
+Arrow Source Type: Control
+
+Arrow Name: Пользователь с доступом
+Arrow Source: Управлять ролями пользователей
+Arrow Source Type: Output
+
+Arrow Name: Правила маршрутизации
+Arrow Source: Конфигурировать сетевой стек
+Arrow Source Type: Output
+
+Arrow Name: Программные агенты на устройствах
+Arrow Source: { Border }
+Arrow Source Type: Mechanism
+
+Arrow Name: Разрешение на изменение
+Arrow Source: Управлять ролями пользователей
+Arrow Source Type: Output
+
+Arrow Name: Регламенты восстановления и обновления
+Arrow Source: { Border }
+Arrow Source Type: Control
+
+Arrow Name: Рекомендации по улучшению
+Arrow Source: Интерпретировать отчетность по сети
+Arrow Source Type: Output
+
+Arrow Name: Сервер управления конфигурациями
+Arrow Source: { Border }
+Arrow Source Type: Mechanism
+
+Arrow Name: Сеть устойчива
+Arrow Source: Оценивать качество соединений
+Arrow Source Type: Output
+
+Arrow Name: Система журналирования и отчетности
+Arrow Source: { Border }
+Arrow Source Type: Mechanism
+
+Arrow Name: Система мониторинга и анализа
+Arrow Source: { Border }
+Arrow Source Type: Mechanism
+
+Arrow Name: Список возможных ролей
+Arrow Source: { Border }
+Arrow Source Type: Input
+
+Arrow Name: Список пользователей
+Arrow Source: { Border }
+Arrow Source Type: Input
+
+Arrow Name: Статистика
+Arrow Source: Интерпретировать отчетность по сети
+Arrow Source Type: Output
+
+Arrow Name: Статус подключения устройства
+Arrow Source: Подключить новое устройство
+Arrow Source Type: Output
+
+Arrow Name: Трафик данных
+Arrow Source: { Border }
+Arrow Source Type: Input

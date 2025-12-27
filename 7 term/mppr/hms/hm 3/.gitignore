@@ -1,0 +1,47 @@
+# --- System (macOS) ---
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# --- Python ---
+# Виртуальное окружение
+venv/
+env/
+.env
+
+# Байткод и кэши
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Go (Golang) ---
+# Скомпилированные бинарники (обычно без расширения в Unix или .exe в Windows)
+*.exe
+*.test
+*.out
+# Если при сборке `go build` создается файл main (из main.go)
+main
+
+# --- ONNX / ML Models & Data ---
+# Игнорируем тяжелые веса моделей и данные
+*.onnx
+*.onnx.data
+*.pb
+*.h5
+
+# --- Dependencies / Libs ---
+# Игнорируем скачанные архивы и распакованные библиотеки
+*.tgz
+*.tar.gz
+*.zip
+
+# Конкретно твоя папка с onnxruntime
+onnxruntime-osx-arm64-*/
+# Динамические библиотеки
+*.dylib
+*.so
+*.dll
+
+# --- IDE / Editors (Опционально) ---
+.vscode/
+.idea/

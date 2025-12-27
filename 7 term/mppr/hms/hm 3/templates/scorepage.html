@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vision | Neural Lens</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --accent: #ec4899;
+            --bg-dark: #020617;
+            --text-main: #f8fafc;
+            --text-secondary: #94a3b8;
+            --error: #f43f5e;
+            --success: #10b981;
+            --glass-bg: rgba(15, 23, 42, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-highlight: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .ambient-light {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation-name: moveBlob;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            will-change: transform;
+        }
+
+        @keyframes moveBlob {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(10vw, -5vh) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-5vw, 10vh) scale(0.95);
+            }
+
+            100% {
+                transform: translate(5vw, -5vh) scale(1.05);
+            }
+        }
+
+        .container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 0 0 1px var(--glass-highlight);
+            border-radius: 32px;
+            padding: 3rem;
+            width: 90%;
+            max-width: 460px;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0;
+            text-align: center;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #fff 20%, #818cf8 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 5s linear infinite;
+        }
+
+        @keyframes textShine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .upload-area {
+            border: 2px dashed rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .upload-area.drag-over {
+            border-color: var(--accent);
+            background: rgba(236, 72, 153, 0.1);
+            transform: scale(1.02);
+            box-shadow: 0 0 40px rgba(236, 72, 153, 0.2);
+        }
+
+        .icon-box {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            color: #fff;
+        }
+
+        .icon-box svg {
+            width: 32px;
+            height: 32px;
+            stroke-width: 1.5;
+        }
+
+        .upload-area:hover .icon-box {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .preview-container {
+            display: none;
+            position: relative;
+            width: 100%;
+            height: 220px;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .preview-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .scanner-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            box-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary);
+            animation: scan 2s ease-in-out infinite;
+            z-index: 5;
+            opacity: 0.8;
+            display: none;
+        }
+
+        .scanner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(99, 102, 241, 0.1) 0%, transparent 20%);
+            animation: scanOverlay 2s ease-in-out infinite;
+            pointer-events: none;
+            display: none;
+        }
+
+        @keyframes scan {
+            0% {
+                top: -10%;
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                top: 110%;
+                opacity: 0;
+            }
+        }
+
+        .remove-file {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 32px;
+            height: 32px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            transition: all 0.2s;
+            z-index: 10;
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .remove-file:hover {
+            background: var(--error);
+            transform: scale(1.1);
+        }
+
+        .tags {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .tag:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .btn-submit::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-submit:hover::after {
+            left: 100%;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-submit:active {
+            transform: scale(0.98);
+        }
+
+        .btn-submit:disabled {
+            background: #334155;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            color: #94a3b8;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .result-card {
+            background: #fff;
+            color: #0f172a;
+            border-radius: 24px;
+            overflow: hidden;
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .result-image-wrapper {
+            height: 240px;
+            position: relative;
+        }
+
+        .result-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .result-content {
+            padding: 2rem;
+            text-align: left;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.8rem;
+        }
+
+        .status-success {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-fail {
+            background: #ffedd5;
+            color: #9a3412;
+        }
+
+        .prediction-score {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #0f172a, #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            word-wrap: break-word;
+        }
+
+        .confidence-label {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .btn-retry {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 2rem;
+            padding: 14px 28px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-retry:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-retry svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s;
+        }
+
+        .btn-retry:hover svg {
+            transform: translateX(-4px) scale(1.1);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ambient-light"></div>
+
+    <div class="container">
+        <h1>AI Vision</h1>
+
+        {{ if not .scorePrediction }}
+        <p class="subtitle">CIFAR-100 Neural Object Recognition</p>
+
+        <form id="prediction-form" action="/predictImage" method="post" enctype="multipart/form-data">
+            <div id="drop-zone" class="upload-area">
+                <div id="upload-content">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                        </svg>
+                    </div>
+                    <span style="display:block; font-weight: 600; color: #fff; margin-bottom: 4px;">Upload Photo</span>
+                    <span style="font-size: 0.9rem; color: var(--text-secondary);">PNG, JPG (Drag & Drop)</span>
+                </div>
+
+                <div id="preview-container" class="preview-container">
+                    <div class="scanner-line" id="scanner"></div>
+                    <div class="scanner-overlay" id="scanner-overlay"></div>
+                    <img id="preview-image" class="preview-image" src="" alt="Preview">
+                    <button type="button" class="remove-file" id="remove-btn">×</button>
+                </div>
+            </div>
+
+            <input id="file-input" type="file" name="filePath" accept="image/*">
+
+            <div class="tags">
+                <span class="tag">🦋 Butterfly</span>
+                <span class="tag">🤖 Robot</span>
+                <span class="tag">🚀 Rocket</span>
+            </div>
+
+            <button type="button" id="submit-btn" class="btn-submit">
+                <div class="spinner"></div>
+                <span class="btn-text">Analyze Object</span>
+            </button>
+        </form>
+        {{ end }}
+
+        {{ if .scorePrediction }}
+        <div class="result-card">
+            {{ if .img_uri }}
+            <div class="result-image-wrapper">
+                <img src="{{ .img_uri }}" alt="Analyzed">
+            </div>
+            {{ end }}
+
+            <div class="result-content">
+                <div class="status-badge {{ if .isSuccess }}status-success{{ else }}status-fail{{ end }}">
+                    {{ if .isSuccess }}Target Detected{{ else }}Object Detected{{ end }}
+                </div>
+                <div class="prediction-score">{{ .scorePrediction }}</div>
+                <div class="confidence-label">Neural Confidence Score</div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="/" class="btn-retry">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M19 12H5M12 19L5 12L12 5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Try Again</span>
+            </a>
+        </div>
+        {{ end }}
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            initAmbientBackground();
+            initFileUpload();
+        });
+
+        function initAmbientBackground() {
+            const container = document.querySelector('.ambient-light');
+            if (!container) return;
+
+            const SESSION_KEY = 'bg_blob_data_v2';
+            const navEntries = performance.getEntriesByType("navigation");
+
+            if (navEntries.length > 0 && navEntries[0].type === "reload") {
+                sessionStorage.removeItem(SESSION_KEY);
+            }
+
+            let savedData = null;
+            try {
+                const stored = sessionStorage.getItem(SESSION_KEY);
+                if (stored) savedData = JSON.parse(stored);
+            } catch (e) {
+                console.warn(e);
+            }
+
+            let blobsConfig = savedData ? savedData.blobs : generateBlobConfig();
+            let globalStartTime = savedData ? savedData.globalStartTime : Date.now();
+
+            if (!savedData) {
+                sessionStorage.setItem(SESSION_KEY, JSON.stringify({
+                    blobs: blobsConfig,
+                    globalStartTime: globalStartTime
+                }));
+            }
+
+            const elapsedSeconds = (Date.now() - globalStartTime) / 1000;
+
+            blobsConfig.forEach(config => {
+                const blob = document.createElement('div');
+                blob.classList.add('blob');
+                blob.style.width = config.size;
+                blob.style.height = config.size;
+                blob.style.background = config.background;
+                blob.style.left = config.left;
+                blob.style.top = config.top;
+                blob.style.animationDuration = `${config.duration}s`;
+                blob.style.animationDelay = `${config.initialDelay - elapsedSeconds}s`;
+                container.appendChild(blob);
+            });
+        }
+
+        function generateBlobConfig() {
+            const configArray = [];
+            const count = Math.floor(Math.random() * 3) + 3;
+            const colors = ['var(--primary)', 'var(--accent)', '#818cf8', '#c084fc', '#2dd4bf', '#f472b6'];
+
+            for (let i = 0; i < count; i++) {
+                const sizeVal = Math.floor(Math.random() * 301) + 300;
+                const colorVal = colors[Math.floor(Math.random() * colors.length)];
+                const posY = Math.floor(Math.random() * 71) + 15;
+                const posX = Math.random() > 0.5
+                    ? Math.floor(Math.random() * 41) + 70
+                    : Math.floor(Math.random() * 41) - 10;
+
+                configArray.push({
+                    size: `${sizeVal}px`,
+                    background: `radial-gradient(circle, ${colorVal}, transparent 70%)`,
+                    top: `${posY}%`,
+                    left: `${posX}%`,
+                    duration: Math.floor(Math.random() * 21) + 25,
+                    initialDelay: -(Math.random() * 20)
+                });
+            }
+            return configArray;
+        }
+
+        function initFileUpload() {
+            const dropZone = document.getElementById('drop-zone');
+            const fileInput = document.getElementById('file-input');
+            const previewContainer = document.getElementById('preview-container');
+            const previewImage = document.getElementById('preview-image');
+            const uploadContent = document.getElementById('upload-content');
+            const submitBtn = document.getElementById('submit-btn');
+            const removeBtn = document.getElementById('remove-btn');
+            const form = document.getElementById('prediction-form');
+            const scanner = document.getElementById('scanner');
+            const scannerOverlay = document.getElementById('scanner-overlay');
+
+            if (!dropZone) return;
+
+            dropZone.addEventListener('click', () => fileInput.click());
+
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(e => {
+                dropZone.addEventListener(e, (ev) => {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                });
+            });
+
+            ['dragenter', 'dragover'].forEach(() => dropZone.classList.add('drag-over'));
+            ['dragleave', 'drop'].forEach(() => dropZone.classList.remove('drag-over'));
+
+            dropZone.addEventListener('drop', (e) => {
+                if (e.dataTransfer.files.length) {
+                    fileInput.files = e.dataTransfer.files;
+                    handleFileSelection(fileInput.files[0]);
+                }
+            });
+
+            fileInput.addEventListener('change', () => {
+                if (fileInput.files[0]) handleFileSelection(fileInput.files[0]);
+            });
+
+            removeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                resetInterface();
+            });
+
+            submitBtn.addEventListener('click', () => {
+                if (!fileInput.files || fileInput.files.length === 0) {
+                    highlightError();
+                    return;
+                }
+                processSubmission();
+            });
+
+            function handleFileSelection(file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    previewImage.src = e.target.result;
+                    uploadContent.style.display = 'none';
+                    previewContainer.style.display = 'block';
+                    dropZone.style.padding = '0';
+                    dropZone.style.border = 'none';
+                    scanner.style.display = 'block';
+                    scannerOverlay.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+
+            function resetInterface() {
+                fileInput.value = "";
+                previewImage.src = "";
+                previewContainer.style.display = 'none';
+                uploadContent.style.display = 'block';
+                dropZone.style.padding = '2.5rem 1.5rem';
+                dropZone.style.border = '2px dashed rgba(255, 255, 255, 0.15)';
+                scanner.style.display = 'none';
+                scannerOverlay.style.display = 'none';
+            }
+
+            function highlightError() {
+                dropZone.style.borderColor = 'var(--error)';
+                setTimeout(() => dropZone.style.borderColor = 'rgba(255, 255, 255, 0.15)', 500);
+            }
+
+            function processSubmission() {
+                submitBtn.disabled = true;
+                const spinner = submitBtn.querySelector('.spinner');
+                const btnText = submitBtn.querySelector('.btn-text');
+
+                spinner.style.display = "block";
+                const messages = ["Uploading...", "Preprocessing...", "Neural Scan...", "Finalizing..."];
+                let step = 0;
+
+                btnText.textContent = messages[0];
+                const interval = setInterval(() => {
+                    step++;
+                    if (step < messages.length) btnText.textContent = messages[step];
+                    else clearInterval(interval);
+                }, 800);
+
+                form.submit();
+            }
+        }
+    </script>
+</body>
+
+</html>

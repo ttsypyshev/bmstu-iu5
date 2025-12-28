@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Vision | Neural Lens</title>
+    <title>Зрѣніе Чудесное | Стекъло Разумное</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <style>
@@ -24,6 +24,7 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
+            /* Можно заменить на старославянский шрифт, если есть */
             background-color: var(--bg-dark);
             color: var(--text-main);
             margin: 0;
@@ -471,10 +472,10 @@
     <div class="ambient-light"></div>
 
     <div class="container">
-        <h1>AI Vision</h1>
+        <h1>Оканьное зрѣніе</h1>
 
         {{ if not .scorePrediction }}
-        <p class="subtitle">CIFAR-100 Neural Object Recognition</p>
+        <p class="subtitle">Мудрость Цифирная о Образахъ Земныхъ</p>
 
         <form id="prediction-form" action="/predictImage" method="post" enctype="multipart/form-data">
             <div id="drop-zone" class="upload-area">
@@ -487,14 +488,16 @@
                                 d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
                         </svg>
                     </div>
-                    <span style="display:block; font-weight: 600; color: #fff; margin-bottom: 4px;">Upload Photo</span>
-                    <span style="font-size: 0.9rem; color: var(--text-secondary);">PNG, JPG (Drag & Drop)</span>
+                    <span style="display:block; font-weight: 600; color: #fff; margin-bottom: 4px;">Возложи
+                        Парсуну</span>
+                    <span style="font-size: 0.9rem; color: var(--text-secondary);">Свитки PNG, JPG (Влеки да
+                        Бросай)</span>
                 </div>
 
                 <div id="preview-container" class="preview-container">
                     <div class="scanner-line" id="scanner"></div>
                     <div class="scanner-overlay" id="scanner-overlay"></div>
-                    <img id="preview-image" class="preview-image" src="" alt="Preview">
+                    <img id="preview-image" class="preview-image" src="" alt="Предпросмотръ">
                     <button type="button" class="remove-file" id="remove-btn">×</button>
                 </div>
             </div>
@@ -502,14 +505,14 @@
             <input id="file-input" type="file" name="filePath" accept="image/*">
 
             <div class="tags">
-                <span class="tag">🦋 Butterfly</span>
-                <span class="tag">🤖 Robot</span>
-                <span class="tag">🚀 Rocket</span>
+                <span class="tag">🦋 Мотылёкъ</span>
+                <span class="tag">🤖 Истуканъ</span>
+                <span class="tag">🚀 Стрѣла огненная</span>
             </div>
 
             <button type="button" id="submit-btn" class="btn-submit">
                 <div class="spinner"></div>
-                <span class="btn-text">Analyze Object</span>
+                <span class="btn-text">Посълати</span>
             </button>
         </form>
         {{ end }}
@@ -518,16 +521,16 @@
         <div class="result-card">
             {{ if .img_uri }}
             <div class="result-image-wrapper">
-                <img src="{{ .img_uri }}" alt="Analyzed">
+                <img src="{{ .img_uri }}" alt="Изображеніе">
             </div>
             {{ end }}
 
             <div class="result-content">
                 <div class="status-badge {{ if .isSuccess }}status-success{{ else }}status-fail{{ end }}">
-                    {{ if .isSuccess }}Target Detected{{ else }}Object Detected{{ end }}
+                    {{ if .isSuccess }}Цѣль Обрѣтена{{ else }}Тварь Узрѣна{{ end }}
                 </div>
                 <div class="prediction-score">{{ .scorePrediction }}</div>
-                <div class="confidence-label">Neural Confidence Score</div>
+                <div class="confidence-label">Мѣра Истины Пророчества</div>
             </div>
         </div>
 
@@ -537,7 +540,7 @@
                     stroke-width="2">
                     <path d="M19 12H5M12 19L5 12L12 5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <span>Try Again</span>
+                <span>Пакы зри, бѣсе</span>
             </a>
         </div>
         {{ end }}
@@ -705,7 +708,8 @@
                 const btnText = submitBtn.querySelector('.btn-text');
 
                 spinner.style.display = "block";
-                const messages = ["Uploading...", "Preprocessing...", "Neural Scan...", "Finalizing..."];
+                // Переведенные сообщения для процесса загрузки
+                const messages = ["Возложеніе...", "Приготовленіе...", "Созерцаніе...", "Истина близко..."];
                 let step = 0;
 
                 btnText.textContent = messages[0];

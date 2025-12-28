@@ -1,9 +1,9 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Neural Snake AI</title>
+<title>Змій Разумный</title>
 <style>
     :root {
         --bg-color: #23272a;
@@ -19,7 +19,7 @@
     body {
         background-color: var(--bg-color);
         color: var(--text-color);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-family: 'Times New Roman', serif; /* Сменил шрифт для атмосферы */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -33,8 +33,9 @@
         font-weight: 300;
         letter-spacing: 2px;
         margin-bottom: 20px;
-        font-size: 24px;
+        font-size: 28px;
         opacity: 0.9;
+        text-transform: uppercase;
     }
 
     /* Stats Panel */
@@ -46,7 +47,7 @@
         padding: 10px 30px;
         border-radius: 50px;
         box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 500;
     }
     .stat-item span {
@@ -63,6 +64,7 @@
         border-radius: 8px;
         box-shadow: 0 10px 20px rgba(0,0,0,0.4);
         margin-bottom: 25px;
+        border: 2px solid #444;
     }
 
     /* Controls */
@@ -80,9 +82,10 @@
         padding: 8px 16px;
         border-radius: 6px;
         cursor: pointer;
-        font-size: 13px;
+        font-size: 14px;
         transition: all 0.2s ease;
         font-weight: 500;
+        font-family: 'Times New Roman', serif;
     }
 
     button:hover {
@@ -99,22 +102,22 @@
 </head>
 <body>
 
-<h2>NEURAL SNAKE</h2>
+<h2>Змій Побѣдоносный</h2>
 
 <div class="stats">
-    <div class="stat-item">Score: <span id="scoreVal">0</span></div>
-    <div class="stat-item">Sim Time: <span id="timeVal">0.0s</span></div>
+    <div class="stat-item">Яства: <span id="scoreVal">0</span></div>
+    <div class="stat-item">Врѣмя житія: <span id="timeVal">0.0с</span></div>
 </div>
 
 <canvas id="game" width="400" height="400"></canvas>
 
 <div class="controls">
-    <button onclick="setSpeed(0.5)">x0.5</button>
-    <button onclick="setSpeed(1)">x1</button>
-    <button onclick="setSpeed(2)">x2</button>
-    <button onclick="setSpeed(5)">x5</button>
-    <button onclick="setSpeed(100)">MAX</button>
-    <button onclick="resetGame()" style="border-color: var(--danger-color); color:var(--danger-color)">RESET</button>
+    <button onclick="setSpeed(0.5)">Тихо (x0.5)</button>
+    <button onclick="setSpeed(1)">Чинно (x1)</button>
+    <button onclick="setSpeed(2)">Спѣшно (x2)</button>
+    <button onclick="setSpeed(5)">Борзо (x5)</button>
+    <button onclick="setSpeed(100)">ЗѢЛО БОРЗО</button>
+    <button onclick="resetGame()" style="border-color: var(--danger-color); color:var(--danger-color)">Воскресити</button>
 </div>
 
 <script>
@@ -132,7 +135,7 @@ const scoreEl = document.getElementById('scoreVal');
 const timeEl = document.getElementById('timeVal');
 
 // ---------------- SPEED CONTROL ----------------
-const BASE_STEP_TIME = 150; // Время одного шага в мс (как бы 1 "тик" симуляции)
+const BASE_STEP_TIME = 150; // Врѣмя единаго шага
 let speedMultiplier = 1;
 let accumulator = 0;
 let lastTime = performance.now();
@@ -144,9 +147,9 @@ function setSpeed(v){
 // ---------------- GAME STATE ----------------
 let snake, dir, food, dead;
 let score = 0;
-let steps = 0; // Считаем шаги симуляции
+let steps = 0; 
 
-// ---------------- AI ----------------
+// ---------------- AI (Разумъ Змія) ----------------
 function predict(input) {
     let h = [];
     for (let i = 0; i < b1.length; i++) {
@@ -164,7 +167,7 @@ function predict(input) {
     return out.indexOf(Math.max(...out));
 }
 
-// ---------------- FEATURES ----------------
+// ---------------- FEATURES (Очи Змія) ----------------
 function getFeatures() {
     let h = snake[0];
     const dirs = [{x:0,y:-1},{x:1,y:0},{x:0,y:1},{x:-1,y:0}];
@@ -208,7 +211,6 @@ function spawnFood(){
 function step(){
     if(dead) return;
 
-    // Считаем шаги
     steps++;
 
     let a=predict(getFeatures());
@@ -237,9 +239,8 @@ function step(){
 
 function updateStats() {
     scoreEl.innerText = score;
-    // Время = количество шагов * время одного шага (в секундах)
     let simTime = (steps * BASE_STEP_TIME) / 1000;
-    timeEl.innerText = simTime.toFixed(1) + "s";
+    timeEl.innerText = simTime.toFixed(1) + " с.";
 }
 
 // ---------------- DRAW ----------------
@@ -249,14 +250,14 @@ function draw(){
     ctx.fillRect(0,0,canvas.width,canvas.height);
 
     // Draw Food
-    ctx.fillStyle="#bf616a"; // Soft Red
+    ctx.fillStyle="#bf616a"; 
     ctx.beginPath();
     ctx.roundRect(food.x*grid + 2, food.y*grid + 2, grid-4, grid-4, 4);
     ctx.fill();
 
     // Draw Snake
     snake.forEach((s,i)=>{ 
-        ctx.fillStyle = i===0 ? "#eceff4" : "#88c0d0"; // Head: White, Body: Soft Blue
+        ctx.fillStyle = i===0 ? "#eceff4" : "#88c0d0"; 
         ctx.beginPath();
         let pad = i===0 ? 0 : 1;
         ctx.rect(s.x*grid + pad, s.y*grid + pad, grid - pad*2, grid - pad*2);
@@ -264,15 +265,17 @@ function draw(){
     });
 
     if(dead){
-        ctx.fillStyle="rgba(0,0,0,0.5)";
+        ctx.fillStyle="rgba(0,0,0,0.6)";
         ctx.fillRect(0,0,canvas.width,canvas.height);
 
-        ctx.fillStyle="#fff";
-        ctx.font="bold 30px sans-serif";
+        ctx.fillStyle="#d08770";
+        ctx.font="bold 30px 'Times New Roman', serif";
         ctx.textAlign = "center";
-        ctx.fillText("GAME OVER", canvas.width/2, canvas.height/2);
-        ctx.font="16px sans-serif";
-        ctx.fillText("Score: " + score, canvas.width/2, canvas.height/2 + 30);
+        ctx.fillText("ПРЕСТАВИЛСЯ", canvas.width/2, canvas.height/2);
+
+        ctx.fillStyle="#eceff4";
+        ctx.font="18px 'Times New Roman', serif";
+        ctx.fillText("Снискал яствъ: " + score, canvas.width/2, canvas.height/2 + 35);
     }
 }
 
@@ -287,7 +290,6 @@ function loop(now){
         accumulator -= BASE_STEP_TIME;
     }
 
-    // Вызываем updateStats только здесь, чтобы UI обновлялся синхронно с шагами
     updateStats();
     draw();
     requestAnimationFrame(loop);

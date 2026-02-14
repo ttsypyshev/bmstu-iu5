@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Змій Разумный</title>
+<style>
+    :root {
+        --bg-color: #23272a;
+        --panel-color: #2c2f33;
+        --text-color: #eceff4;
+        --accent-color: #7289da;
+        --snake-body: #88c0d0;
+        --snake-head: #eceff4;
+        --food-color: #bf616a;
+        --danger-color: #d08770;
+    }
+
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-family: 'Times New Roman', serif; /* Сменил шрифт для атмосферы */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        user-select: none;
+    }
+
+    h2 {
+        font-weight: 300;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        font-size: 28px;
+        opacity: 0.9;
+        text-transform: uppercase;
+    }
+
+    /* Stats Panel */
+    .stats {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 15px;
+        background: var(--panel-color);
+        padding: 10px 30px;
+        border-radius: 50px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .stat-item span {
+        font-weight: 700;
+        color: var(--accent-color);
+        margin-left: 8px;
+        min-width: 40px;
+        display: inline-block;
+    }
+
+    /* Game Canvas */
+    canvas {
+        background-color: var(--panel-color);
+        border-radius: 8px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        margin-bottom: 25px;
+        border: 2px solid #444;
+    }
+
+    /* Controls */
+    .controls {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    button {
+        background: var(--panel-color);
+        color: var(--text-color);
+        border: 1px solid rgba(255,255,255,0.1);
+        padding: 8px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.2s ease;
+        font-weight: 500;
+        font-family: 'Times New Roman', serif;
+    }
+
+    button:hover {
+        background: var(--accent-color);
+        color: #fff;
+        border-color: var(--accent-color);
+        transform: translateY(-1px);
+    }
+
+    button:active {
+        transform: translateY(1px);
+    }
+</style>
+</head>
+<body>
+
+<h2>Змій Побѣдоносный</h2>
+
+<div class="stats">
+    <div class="stat-item">Яства: <span id="scoreVal">0</span></div>
+    <div class="stat-item">Врѣмя житія: <span id="timeVal">0.0с</span></div>
+</div>
+
+<canvas id="game" width="400" height="400"></canvas>
+
+<div class="controls">
+    <button onclick="setSpeed(0.5)">Тихо (x0.5)</button>
+    <button onclick="setSpeed(1)">Чинно (x1)</button>
+    <button onclick="setSpeed(2)">Спѣшно (x2)</button>
+    <button onclick="setSpeed(5)">Борзо (x5)</button>
+    <button onclick="setSpeed(100)">ЗѢЛО БОРЗО</button>
+    <button onclick="resetGame()" style="border-color: var(--danger-color); color:var(--danger-color)">Воскресити</button>
+</div>
+
+<script>
+const weights = [[[2.3594032649416135, -1.3443610207448495, 0.5153724762266264, -0.09174891744078076, -1.852439515196597, -1.2224959490102845, -0.490813770465889, -2.0727195391278035, -0.6894035497992531, 0.15477213016659785, -1.512476245317653, -2.3285454403931856, -0.03084089590106953, -2.7070450414499936, -0.4760878751163622, 0.779651852348051], [0.7772120592151887, -0.369113983934764, -0.5125449517798402, -1.930433890733636, -1.7828034923487128, 1.9795251827885714, -1.2534967062591917, -1.615114268512017, -2.1161939815383017, -1.5429795633590913, 0.8448633733152999, -2.2027670318666486, -0.08381634090195615, 0.7601222200684752, 0.7652694711775117, 1.3072401474845534], [0.8387369009207738, 0.028803383364290003, -1.1675053221912697, -0.417881869914509, 2.1035673455182886, -0.4352296630750848, 1.6928546727956173, 1.8845196217492142, -0.7201587376228049, -1.0764846563466977, -0.2638636606201521, 0.658369751577657, 1.2246451715779505, 0.09309150108825875, 0.8057583638226065, -0.9378841596775512], [-0.060296816105413764, 1.0323504576057514, -0.3459893236030155, -0.3039501434276141, 0.21430960151262993, 1.2978002470768333, -0.6762138909727637, 0.516948946840986, -0.3685703609388648, 0.918255488355639, -0.7371355975069884, -1.8760588491571577, -1.4232867250304555, 1.90190604364654, -0.16381737544115202, -0.9983223215868947], [-2.2608415911583135, 0.2876675426282737, 0.6393630040489018, 0.17323317366459445, 0.9972400253287803, 0.41093271481115956, 0.3243147568424721, -1.5753291272103858, 1.5103863764997636, 0.10696378478587065, 2.553053472523864, -0.018942417973703773, 1.2015827952014528, -0.5235865871396905, -0.19498442587675877, 1.2995930348979685], [-0.6141019771151632, -0.18277474490360218, 0.35204843316939416, 1.4845475808881488, -0.3228793332123868, 0.11071435786480671, -1.9927300926688094, 0.4085096089156708, -0.6647809466446644, 0.9279966109414053, 1.9142849140296885, 1.1863913506807846, 0.021162632841859305, -0.10480870283758112, -0.6338109774293054, -0.12496530098603609], [1.271531535402685, 2.728404773645672, 0.8485892086777244, -0.7558946281108733, 0.602327453758831, 0.07089075812842938, 0.5336615951915606, -0.9392528771851066, -0.6682941996740548, -0.6212439610508816, -0.0795938967295764, -1.7643812650722928, -1.3171021947567678, 0.32264369593553044, 0.8084193844839913, 0.9533383819025387], [0.043764091108508665, 0.5016840976636051, -0.5958193224707027, -1.6616199427555152, -1.470249223810026, 0.7285639921079035, -0.5584828784453186, 0.1854372641832598, -0.96095986506541, -0.4437773056005299, -1.853189728233708, -0.07908099496071913, -2.316495390735706, 0.8345837305655839, 0.3268334328364811, -0.395158921481577], [1.0804674127473481, -0.5458301345633519, 0.39091242642975316, 0.7604172776665927, 0.015198871321866592, -1.7387166177647948, -1.1844412115059402, 1.974404156850595, 1.1202142363357268, -0.7581697404166945, 1.6578751223984345, -0.8072746101068282, 0.226925578366548, -1.0147733978268345, 0.713203976753051, 1.5233401702403826], [-0.18603537366845166, 0.582078090287966, 0.05737120988169894, 1.015696869506156, -0.9554047565747228, -1.1361713504912305, -2.492815957948982, -0.26991224764333377, 1.743280768486248, 0.8660224604914719, -1.0461909686898436, 0.5396387751106413, -1.858256871485473, 0.5912227593871732, -0.4599715551747626, 0.9977692558724649], [-1.418644662770975, 1.1030803170884786, 0.736208353650349, 0.3814848668177588, 1.3936670932664472, -1.7008969688254343, 0.5605713443364932, -0.9597979621056418, -0.2528164099333872, -0.22885371128354265, -2.231452624272936, -0.9713974569349699, 0.5077987402026183, 1.278411604221273, 0.7623756034424863, 0.6950605370019863]], [0.6259153045582653, 2.2706706246471438, 0.9172383251084879, 1.066943877353813, -0.6964836910562399, -0.9103068301169986, 0.08260651578911254, 1.2958962465564763, -1.513620514682933, -1.1754811619029857, 0.6805058493879974, 0.26439904662462715, -0.015199121495328718, -0.180443285094181, 0.6473920248999706, -0.29830285993216643], [[0.6574902595790126, -0.5841519549739556, 0.3595988692987375], [-0.4875547338112775, 1.1084004979341937, -1.0062819721033756], [1.7493422917680004, -0.3881878342877631, 1.1473863788379326], [-0.41332838652820514, -0.6463509970743334, 1.7397081371532779], [-1.791256972773886, 0.1271785653050203, 0.9738058026903713], [-0.3679274669886088, -0.8991942196920455, -0.3857890413421018], [-0.8290605209726701, -0.14452704937470792, 1.41638993411784], [-0.5437812111599579, -0.1925770177337337, 1.7903768435691452], [0.6437555968666944, -0.4446874049876831, -0.6294098742838483], [0.5049446248020053, 0.8520164835652568, 1.1826807591354462], [0.35203492505775413, -0.6916684179118162, 0.00939812296706985], [0.7887708961074316, -0.14628293539443182, 1.6683311633649702], [-0.8081285298148999, 1.4414927370810167, 2.492596392686837], [-0.800970954468101, 2.7079876599690778, -2.786891790549448], [-0.46399182040440734, -0.3098333230264127, -0.7031001396801038], [1.113146728487236, -1.2023244795177879, -1.08309021403873]], [-0.9583552811836379, -1.2015070987883312, -0.40892663678465124]];
+const [W1, b1, W2, b2] = weights;
+
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+const grid = 20;
+const cols = canvas.width / grid;
+const rows = canvas.height / grid;
+
+// DOM Elements
+const scoreEl = document.getElementById('scoreVal');
+const timeEl = document.getElementById('timeVal');
+
+// ---------------- SPEED CONTROL ----------------
+const BASE_STEP_TIME = 150; // Врѣмя единаго шага
+let speedMultiplier = 1;
+let accumulator = 0;
+let lastTime = performance.now();
+
+function setSpeed(v){
+    speedMultiplier = Math.max(0.2, Math.min(100, v));
+}
+
+// ---------------- GAME STATE ----------------
+let snake, dir, food, dead;
+let score = 0;
+let steps = 0; 
+
+// ---------------- AI (Разумъ Змія) ----------------
+function predict(input) {
+    let h = [];
+    for (let i = 0; i < b1.length; i++) {
+        let s = b1[i];
+        for (let j = 0; j < input.length; j++) s += input[j] * W1[j][i];
+        h.push(Math.max(0, s));
+    }
+
+    let out = [];
+    for (let i = 0; i < b2.length; i++) {
+        let s = b2[i];
+        for (let j = 0; j < h.length; j++) s += h[j] * W2[j][i];
+        out.push(s);
+    }
+    return out.indexOf(Math.max(...out));
+}
+
+// ---------------- FEATURES (Очи Змія) ----------------
+function getFeatures() {
+    let h = snake[0];
+    const dirs = [{x:0,y:-1},{x:1,y:0},{x:0,y:1},{x:-1,y:0}];
+    let idx = dirs.findIndex(d => d.x===dir.x && d.y===dir.y);
+
+    function bad(p){
+        if(p.x<0||p.y<0||p.x>=cols||p.y>=rows) return 1;
+        return snake.some(s=>s.x===p.x&&s.y===p.y)?1:0;
+    }
+
+    let f=dirs[idx], r=dirs[(idx+1)%4], l=dirs[(idx+3)%4];
+
+    return [
+        bad({x:h.x+f.x,y:h.y+f.y}),
+        bad({x:h.x+r.x,y:h.y+r.y}),
+        bad({x:h.x+l.x,y:h.y+l.y}),
+        dir.x==-1?1:0, dir.x==1?1:0,
+        dir.y==-1?1:0, dir.y==1?1:0,
+        food.x<h.x?1:0, food.x>h.x?1:0,
+        food.y<h.y?1:0, food.y>h.y?1:0
+    ];
+}
+
+// ---------------- GAME LOGIC ----------------
+function resetGame(){
+    snake=[{x:10,y:10},{x:10,y:11},{x:10,y:12}];
+    dir={x:0,y:-1};
+    dead=false;
+    score=0;
+    steps=0;
+    updateStats();
+    spawnFood();
+}
+
+function spawnFood(){
+    do{
+        food={x:Math.floor(Math.random()*cols),y:Math.floor(Math.random()*rows)};
+    }while(snake.some(s=>s.x===food.x&&s.y===food.y));
+}
+
+function step(){
+    if(dead) return;
+
+    steps++;
+
+    let a=predict(getFeatures());
+    const dirs=[{x:0,y:-1},{x:1,y:0},{x:0,y:1},{x:-1,y:0}];
+    let i=dirs.findIndex(d=>d.x===dir.x&&d.y===dir.y);
+    if(a===0) i=(i+3)%4; // Turn Left
+    if(a===2) i=(i+1)%4; // Turn Right
+    dir=dirs[i];
+
+    let h={x:snake[0].x+dir.x,y:snake[0].y+dir.y};
+
+    // Check Collision
+    if(h.x<0||h.y<0||h.x>=cols||h.y>=rows||snake.some(s=>s.x===h.x&&s.y===h.y)){
+        dead=true;
+        return;
+    }
+
+    snake.unshift(h);
+    if(h.x===food.x&&h.y===food.y) {
+        score++;
+        spawnFood();
+    } else {
+        snake.pop();
+    }
+}
+
+function updateStats() {
+    scoreEl.innerText = score;
+    let simTime = (steps * BASE_STEP_TIME) / 1000;
+    timeEl.innerText = simTime.toFixed(1) + " с.";
+}
+
+// ---------------- DRAW ----------------
+function draw(){
+    // Clear
+    ctx.fillStyle="#2c2f33"; 
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    // Draw Food
+    ctx.fillStyle="#bf616a"; 
+    ctx.beginPath();
+    ctx.roundRect(food.x*grid + 2, food.y*grid + 2, grid-4, grid-4, 4);
+    ctx.fill();
+
+    // Draw Snake
+    snake.forEach((s,i)=>{ 
+        ctx.fillStyle = i===0 ? "#eceff4" : "#88c0d0"; 
+        ctx.beginPath();
+        let pad = i===0 ? 0 : 1;
+        ctx.rect(s.x*grid + pad, s.y*grid + pad, grid - pad*2, grid - pad*2);
+        ctx.fill();
+    });
+
+    if(dead){
+        ctx.fillStyle="rgba(0,0,0,0.6)";
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+
+        ctx.fillStyle="#d08770";
+        ctx.font="bold 30px 'Times New Roman', serif";
+        ctx.textAlign = "center";
+        ctx.fillText("ПРЕСТАВИЛСЯ", canvas.width/2, canvas.height/2);
+
+        ctx.fillStyle="#eceff4";
+        ctx.font="18px 'Times New Roman', serif";
+        ctx.fillText("Снискал яствъ: " + score, canvas.width/2, canvas.height/2 + 35);
+    }
+}
+
+// ---------------- MAIN LOOP ----------------
+function loop(now){
+    let dt = now - lastTime;
+    lastTime = now;
+    accumulator += dt * speedMultiplier;
+
+    while(accumulator >= BASE_STEP_TIME){
+        step();
+        accumulator -= BASE_STEP_TIME;
+    }
+
+    updateStats();
+    draw();
+    requestAnimationFrame(loop);
+}
+
+resetGame();
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>

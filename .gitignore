@@ -1136,3 +1136,6 @@ consts.js
 
 # macOS system files
 .DS_Store
+
+.RData
+.Rhistory
